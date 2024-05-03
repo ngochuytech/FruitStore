@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@page import="Model.OrdersDetailsModel"%>
+<%@ page import="java.util.List"%>
 <%@include file="/common/taglib.jsp"%>
 <c:set var="contextPath" value="${pageContext.request.contextPath}" />
 
@@ -48,24 +50,23 @@
         <div class="container-fluid py-5">
             <div class="container py-5">
                 <h1 class="mb-4">Hóa đơn thanh toán</h1>
-                <form action="#">
                     <div class="row g-5">
                         <div class="col-md-12 col-lg-6 col-xl-7">
                             <div class="form-item">
                                 <label class="form-label my-3">Họ và tên</label>
-                                <input type="text" class="form-control" placeholder="Nhập họ và tên của bạn">
+                                <input type="text" name = "UserName" value = "${UserName}" class="form-control" placeholder="Nhập họ và tên của bạn">
                             </div>
                             <div class="form-item">
                                 <label class="form-label my-3">Email</label>
-                                <input type="text" class="form-control" placeholder="Nhập email của bạn">
+                                <input type="email" name = "UserEmail" value = "${UserEmail}" class="form-control" placeholder="Nhập email của bạn">
                             </div>  
                             <div class="form-item">
                                 <label class="form-label my-3">Số điện thoại</label>
-                                <input type="tel" class="form-control" placeholder="Nhập số điện thoại của bạn">
+                                <input type="tel" name = "UserPhone" value = "${UserPhone}" class="form-control" placeholder="Nhập số điện thoại của bạn">
                             </div>
                             <div class="form-item">
                                 <label class="form-label my-3">Địa chỉ</label>
-                                <input type="email" class="form-control" placeholder="Nhập địa chỉ của bạn">
+                                <input type="text" name = "UserAddress" value = "${UserAddress}" class="form-control" placeholder="Nhập địa chỉ của bạn">
                             </div>
                         </div>
                         <div class="col-md-12 col-lg-6 col-xl-5">
@@ -73,72 +74,63 @@
                                 <table class="table">
                                     <thead>
                                         <tr>
-                                            <th scope="col">Products</th>
-                                            <th scope="col">Name</th>
-                                            <th scope="col">Price</th>
-                                            <th scope="col">Quantity</th>
-                                            <th scope="col">Total</th>
+                                            <th scope="col">Sản phẩm</th>
+                                            <th scope="col">Tên</th>
+                                            <th scope="col">Giá</th>
+                                            <th scope="col">Số lượng</th>
+                                            <th scope="col">Tổng</th>
                                         </tr>
                                     </thead>
                                     <tbody>
+                                    <c:forEach items="${sessionScope.orderDetail}" var="entry">
                                         <tr>
                                             <th scope="row">
                                                 <div class="d-flex align-items-center mt-2">
-                                                    <img src="img/vegetable-item-2.jpg" class="img-fluid rounded-circle" style="width: 90px; height: 90px;" alt="">
+                                                    <img src="${entry.product.getImage()}" class="img-fluid rounded-circle" style="width: 90px; height: 90px;" alt="">
                                                 </div>
                                             </th>
-                                            <td class="py-5">Awesome Brocoli</td>
-                                            <td class="py-5">$69.00</td>
-                                            <td class="py-5 px-5" >2</td>
-                                            <td class="py-5">$138.00</td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">
-                                                <div class="d-flex align-items-center mt-2">
-                                                    <img src="img/vegetable-item-5.jpg" class="img-fluid rounded-circle" style="width: 90px; height: 90px;" alt="">
-                                                </div>
-                                            </th>
-                                            <td class="py-5">Potatoes</td>
-                                            <td class="py-5">$69.00</td>
-                                            <td class="py-5 px-5">2</td>
-                                            <td class="py-5">$138.00</td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">
-                                                <div class="d-flex align-items-center mt-2">
-                                                    <img src="img/vegetable-item-3.png" class="img-fluid rounded-circle" style="width: 90px; height: 90px;" alt="">
-                                                </div>
-                                            </th>
-                                            <td class="py-5">Big Banana</td>
-                                            <td class="py-5">$69.00</td>
-                                            <td class="py-5 px-5">2</td>
-                                            <td class="py-5">$138.00</td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">
-                                            </th>
-                                            <td class="py-5">
-                                                <p class="mb-0 text-dark text-uppercase py-3">TOTAL</p>
-                                            </td>
-                                            <td class="py-5"></td>
-                                            <td class="py-5"></td>
-                                            <td class="py-5">
-                                                <div class="py-3 ">
-                                                    <p class="mb-0 text-dark">$135.00</p>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        
-                                    </tbody>
+                                            <td class="py-5">${entry.product.getName()}</td>
+                                            <td class="py-5">${entry.price}</td>
+                                            <td class="py-5 px-5" >${entry.quantity}</td>
+                                            <td class="py-5">${entry.quantity * entry.price}</td>
+                                        </tr>     
+                                     </c:forEach>
+									<tr>
+										<th scope="row"></th>
+										<td class="py-5">
+											<p class="mb-0 text-dark text-uppercase py-3">Tổng tiền</p>
+										</td>
+										<td class="py-5"></td>
+										<td class="py-5"></td>
+										<td class="py-5">
+											<div class="py-3 ">
+												<p class="mb-0 text-dark">
+													<%
+													double totalPayment = 0;
+													List<OrdersDetailsModel> listItem = (List<OrdersDetailsModel>) session.getAttribute("orderDetail");
+													if (listItem != null) {
+
+														for (int i = 0; i < listItem.size(); i++) {
+															OrdersDetailsModel item = listItem.get(i);
+															totalPayment += item.getQuantity() * item.getPrice();
+														}
+													}
+													%>
+													<%=totalPayment %> đ	</p>
+											</div>
+										</td>
+									</tr>
+								</tbody>
                                 </table>
                             </div>
                             
                             <div class="row g-4 text-center align-items-center justify-content-center pt-4">
-                                <button type="button" class="btn border-secondary py-3 px-4 text-uppercase w-100 text-primary">Đặt hàng</button>
+                            	<form action = "${contextPath}/checkout" method="post">
+                              	  	<input type="submit" name="submit" value="Đặt hàng" class="btn border-secondary py-3 px-4 text-uppercase w-100 text-primary">
+                              	</form>
                             </div>
                         </div>
                     </div>
-                </form>
             </div>
         </div>
         <!-- Checkout Page End -->

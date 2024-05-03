@@ -1,10 +1,13 @@
 package Model;
 
-public class OrdersDetailsModel {
+import java.io.Serializable;
+
+public class OrdersDetailsModel implements Serializable{
 	private int id;
 	private ProductModel product;
 	private int quantity;
 	private float price;
+	private int order;
 	public int getId() {
 		return id;
 	}
@@ -31,6 +34,12 @@ public class OrdersDetailsModel {
 	}
 	public void setPrice(float price) {
 		this.price = price;
+	}
+	public int getOrders() {
+		return order;
+	}
+	public void setOrders(int orders) {
+		this.order = orders;
 	}
 
 }
