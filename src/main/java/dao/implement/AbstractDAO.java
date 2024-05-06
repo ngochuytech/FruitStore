@@ -44,8 +44,11 @@ public class AbstractDAO<T> implements GenericDAO<T>{
                     statement.setDouble(index, (Double) parameter);
                 } else if (parameter instanceof Long) {
                     statement.setLong(index, (Long) parameter);
-                } else if (parameter instanceof Float)
+                } else if (parameter instanceof Float) {
                 	statement.setFloat(index, (Float) parameter);
+                } else if (parameter instanceof Date)
+                	statement.setDate(index, (java.sql.Date) parameter);
+      
             }
         } catch (SQLException e) {
             e.printStackTrace();

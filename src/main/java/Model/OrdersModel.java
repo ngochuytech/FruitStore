@@ -6,7 +6,6 @@ public class OrdersModel {
 	private int id;
 	private String date_Create;
 	private UserModel userModel;
-	private List<OrdersDetailsModel> item;
 	private float total_Price;
 	private String status;
 	public int getId() {
@@ -40,11 +39,4 @@ public class OrdersModel {
 	public void setStatus(String status) {
 		this.status = status;
 	}
-	public List<OrdersDetailsModel> getItem() {
-		return item;
-	}
-	public void setItem(List<OrdersDetailsModel> item) {
-		this.item = item;
-	}
-	
 }

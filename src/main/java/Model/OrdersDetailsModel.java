@@ -8,6 +8,19 @@ public class OrdersDetailsModel implements Serializable{
 	private int quantity;
 	private float price;
 	private int order;
+	private int id_product;
+	public int getOrder() {
+		return order;
+	}
+	public void setOrder(int order) {
+		this.order = order;
+	}
+	public int getId_product() {
+		return id_product;
+	}
+	public void setId_product(int id_product) {
+		this.id_product = id_product;
+	}
 	public int getId() {
 		return id;
 	}
