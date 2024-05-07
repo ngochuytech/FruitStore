@@ -54,7 +54,7 @@
                     <div class="account-settings">
                         <div class="user-profile">
                             <div class="user-avatar">
-                                <img src="${contextPath}/asset/img/avatar.jpg" alt="Maxwell Admin">
+                                <img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="Maxwell Admin">
                             </div>
                             <h5 class="user-name">${UserName}</h5>
                         </div>
