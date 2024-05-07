@@ -33,6 +33,16 @@ public class OrderService implements IOrderService{
 	public List<OrdersModel> findByUser(int id) {
 		return orderDAO.findByUser(id);
 	}
+
+	@Override
+	public List<OrdersModel> getAllbyWaiting() {
+		return orderDAO.getAllbyWaiting();
+	}
+
+	@Override
+	public void updateStatus(int id, String status) {
+		orderDAO.updateStatus(id, status);
+	}
 	
 	
 }

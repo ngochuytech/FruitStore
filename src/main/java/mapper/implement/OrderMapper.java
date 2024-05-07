@@ -4,6 +4,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import Model.OrdersModel;
+import Model.UserModel;
 import mapper.RowMapper;
 
 public class OrderMapper implements RowMapper<OrdersModel>{
@@ -16,6 +17,8 @@ public class OrderMapper implements RowMapper<OrdersModel>{
 			ordersModel.setDate_Create(rs.getString("Date_Created"));
 			ordersModel.setTotal_Price(rs.getFloat("Total_price"));
 			ordersModel.setStatus(rs.getString("Status"));
+			UserModel user = new UserMapper().mapRow(rs);
+			ordersModel.setUserModel(user);
 			return ordersModel;
 		}catch (SQLException e) {
 			e.printStackTrace();
