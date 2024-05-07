@@ -55,7 +55,7 @@
                             <div class="user-avatar">
                                 <img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="Maxwell Admin">
                             </div>
-                            <h5 class="user-name">Yuki Hayashi</h5>
+                            <h5 class="user-name">${userName}</h5>
                         </div>
                     </div>
                 </div>
@@ -64,32 +64,35 @@
             <div class="col-xl-9 col-lg-9 col-md-12 col-sm-12 col-12">
             <div class="card h-100">
                 <div class="card-body">
+                <form action = "${contextPath}/update_information" method="post">
                     <div class="row gutters">
                         <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 py-3">
-                            <h6 class="mb-2 text-primary">Personal Details</h6>
+                            <h6 class="mb-2 text-primary">Chi tiết người dùng</h6>
                         </div>
                         <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12 py-3">
                             <div class="form-group">
                                 <label for="fullName">Full Name</label>
-                                <input type="text" class="form-control" id="fullName" placeholder="Enter full name">
+                                <input type="text" class="form-control" name="txtName" value="${userName}" id="fullName" placeholder="Enter full name">
                             </div>
                         </div>
                         <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12 py-3">
+                        	<fieldset disabled>
                             <div class="form-group">
                                 <label for="eMail">Email</label>
-                                <input type="email" class="form-control" id="eMail" placeholder="Enter email ID">
+                                <input type="email" class="form-control" name="txtEmail" value="${userEmail}" id="eMail" placeholder="Enter email ID">
                             </div>
+                            </fieldset>
                         </div>
                         <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12 py-3">
                             <div class="form-group">
                                 <label for="phone">Phone</label>
-                                <input type="text" class="form-control" id="phone" placeholder="Enter phone number">
+                                <input type="text" class="form-control" name="txtPhone" value="${userPhone}" id="phone" placeholder="Enter phone number">
                             </div>
                         </div>
                         <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12 py-3">
                             <div class="form-group">
                                 <label for="website">Address    </label>
-                                <input type="url" class="form-control" id="website" placeholder="Website url">
+                                <input type="text" class="form-control"name="txtAddress" value="${userAddress}" id="website" placeholder="Website url">
                             </div>
                         </div>
                     </div>
@@ -97,10 +100,11 @@
                         <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                             <div class="text-right">
                                 <a href="${contextPath}/user_information" class="btn btn-secondary">Hủy</a>
-                                <button type="button" id="submit" name="submit" class="btn btn-primary">Cập nhật</button>
+                                <button type="submit" id="submit" name="submit" class="btn btn-primary">Cập nhật</button>
                             </div>
                         </div>
                     </div>
+                    </form>
                 </div>
             </div>
             </div>

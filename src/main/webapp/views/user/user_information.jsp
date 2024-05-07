@@ -54,9 +54,9 @@
                     <div class="account-settings">
                         <div class="user-profile">
                             <div class="user-avatar">
-                                <img src="img/avatar.jpg" alt="Maxwell Admin">
+                                <img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="Maxwell Admin">
                             </div>
-                            <h5 class="user-name">Nguyen The Huy</h5>
+                            <h5 class="user-name">${UserName}</h5>
                         </div>
                         <div class=" justify-content-center my-4">
                             <a href="${contextPath}/update_information" class="btn border border-secondary px-4 py-3 text-primary w-100">Thay đổi thông tin</a>
@@ -77,27 +77,27 @@
                             </div>
                             <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12 py-2">
                                 <div class="card">
-                                    <label for="fullName">Full Name</label>
-                                    <input type="text" class="form-control" id="disabledTextInput" placeholder="Name lấy từ CSDL">
+                                    <label for="fullName">Họ và tên</label>
+                                    <input type="text" class="form-control" value="${UserName}" id="disabledTextInput" placeholder="Name lấy từ CSDL">
                                 </div>
                             </div>
 
                             <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12 py-2">
                                 <div class="form-group">
                                     <label for="eMail">Email</label>
-                                    <input type="email" class="form-control" id="eMail" placeholder="Email ID lấy từ CSDL">
+                                    <input type="email" class="form-control" value="${UserEmail}" id="eMail" placeholder="Email ID lấy từ CSDL">
                                 </div>
                             </div>
                             <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12 py-0">
                                 <div class="form-group">
-                                    <label for="phone">Phone</label>
-                                    <input type="text" class="form-control" id="phone" placeholder="phone number lấy từ CSDL">
+                                    <label for="phone">Điện thoại</label>
+                                    <input type="text" class="form-control" value="${UserPhone}" id="phone" placeholder="phone number lấy từ CSDL">
                                 </div>
                             </div>
                             <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12 py-0">
                                 <div class="form-group">
-                                    <label for="website">Address</label>
-                                    <input type="url" class="form-control" id="website" placeholder="Website url">
+                                    <label for="website">Địa chỉ</label>
+                                    <input type="url" class="form-control" value="${UserAddress}" id="website" placeholder="Website url">
                                 </div>
                             </div>
                         </div>

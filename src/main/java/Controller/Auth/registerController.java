@@ -36,7 +36,6 @@ public class registerController extends HttpServlet{
 		String email = req.getParameter("Email");
 		String password = req.getParameter("password");
 		String reppassword = req.getParameter("repeatPassword");
-		System.out.println("Name = " + name + " Email = " + email + " password = " + password + " rep = "+ reppassword);
 		accountModel.setUsername(email);
 		accountModel.setPassword(password);
 		// Cần xử lý thêm thông tin như email, name, số điện thoại, cccd vào user để có thông tin ...

@@ -44,7 +44,7 @@
         </div>
         <!-- Single Page Header End -->
 
-
+		<%int idModal = 0;%>
         <!-- Lich su mua hang -->
         <div class="container-fluid py-5">
             <div class="container py-5 text-center">
@@ -66,50 +66,20 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr>
-                                            <th scope="row" class = "py-5 text-start">1</th>
-                                            <td class="py-5">4/14/2024</td>
-                                            <td class="py-5 text-success">Đã duyệt</td>
-                                            <td class="py-5">100$</td>
-                                            <td class="py-5 text-center">
-                                                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#myModal">
-                                                    <i class="bi bi-eye text-white"></i>
-                                                </button>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row" class = "py-5 text-start">2</th>
-                                            <td class="py-5">2/14/2024</td>
-                                            <td class="py-5 text-warning">Đang chờ duyệt</td>
-                                            <td class="py-5">148$</td>
-                                            <td class="py-5">
-                                                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#myModal">
-                                                    <i class="bi bi-eye text-white"></i>
-                                                </button>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row" class = "py-5 text-start">3</th>
-                                            <td class="py-5">3/14/2024</td>
-                                            <td class="py-5 text-danger">Đã hủy</td>
-                                            <td class="py-5">148$</td>
-                                            <td class="py-5">
-                                                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#myModal">
-                                                    <i class="bi bi-eye text-white"></i>
-                                                </button>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row" class = "py-5 text-start">4</th>
-                                            <td class="py-5">4/14/2024</td>
-                                            <td class="py-5 text-danger">Đã từ chối</td>
-                                            <td class="py-5">148$</td>
-                                            <td class="py-5">
-                                                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#myModal">
-                                                    <i class="bi bi-eye text-white"></i>
-                                                </button>
-                                            </td>
-                                        </tr>
+	                                    <c:forEach items="${order}" var="o">
+	                                        <tr>
+	                                            <th scope="row" class = "py-5 text-start">${o.id}</th>
+	                                            <td class="py-5">${o.date_Create}</td>
+	                                            <td class="py-5 text-warning">${o.status}</td>
+	                                            <td class="py-5">${o.total_Price}đ</td>
+	                                            <td class="py-5 text-center">
+		                                            <button type="button" class="btn btn-primary" value ="${o.id}" data-bs-toggle="modal" data-bs-target="#myModal<%=idModal%>">
+		                                                 <i class="bi bi-eye text-white"></i>
+		                                            </button>
+	                                            </td>
+	                                            <%idModal++; %>
+	                                        </tr>
+	                                    </c:forEach>
                                     </tbody>
                                 </table>
                             </div>
@@ -117,10 +87,14 @@
                 </div>
             </div>
         </div>
-        <!-- Lich su mua hang End -->
+    <!-- Lich su mua hang End -->
     <!-- Modal của sản phẩm khi nhấn nút chi tiết-->
     <!-- The Modal -->
-    <div class="modal fade" id="myModal">
+    <c:set var="orderGetTotal" value="${requestScope.order}" />
+	<c:set var="orderDList" value="${requestScope.orderDList}" />
+	<c:set var="sizeOrderDetail" value="${requestScope.endList}" />
+    <c:forEach items = "${ListIdModal}" var = "i">
+    <div class="modal fade" id="myModal${i}">
         <div class="modal-dialog modal-xl">
             <div class="modal-content">
   
@@ -145,27 +119,15 @@
                                     </tr>
                                 </thead>
                                 <tbody>
+                                	<c:forEach begin="0" end="${sizeOrderDetail.get(i)}" var="j">
                                     <tr>
-                                        <td class="py-5">1</td>
-                                        <td class="py-5">Awesome Brocoli</td>
-                                        <td class="py-5">2</td>
-                                        <td class="py-5 px-5" >65$</td>
-                                        <td class="py-5">$130.00</td>
+                                        <td class="py-5">${orderDList.get(i).get(j).getId_product()}</td>
+                                        <td class="py-5">${orderDList.get(i).get(j).product.getName()}</td>
+                                        <td class="py-5">${orderDList.get(i).get(j).quantity}</td>
+                                        <td class="py-5 px-5" >${orderDList.get(i).get(j).price}đ</td>
+                                        <td class="py-5">${orderDList.get(i).get(j).quantity * orderDList.get(i).get(j).price}đ</td>
                                     </tr>
-                                    <tr>
-                                        <td class="py-5">2</td>
-                                        <td class="py-5">Cà chua</td>
-                                        <td class="py-5">2</td>
-                                        <td class="py-5 px-5" >65$</td>
-                                        <td class="py-5">$130.00</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="py-5">3</td>
-                                        <td class="py-5">Dưa hấu</td>
-                                        <td class="py-5">2</td>
-                                        <td class="py-5 px-5" >65$</td>
-                                        <td class="py-5">$130.00</td>
-                                    </tr>
+                                     </c:forEach>
                                     <tr>
                                         <th scope="row">
                                         </th>
@@ -176,7 +138,7 @@
                                         <td class="py-5"></td>
                                         <td class="py-5">
                                             <div class="py-3 ">
-                                                <p class="mb-0 text-dark">$999.00</p>
+                                                <p class="mb-0 text-dark">${orderGetTotal.get(i).getTotal_Price()}đ</p>
                                             </div>
                                         </td>
                                     </tr>
@@ -194,65 +156,11 @@
             </div>
         </div>
     </div>
+	</c:forEach>
         <!-- Modal ends-->  
 
          <!-- Footer Start -->
-         <div class="container-fluid bg-dark text-white-50 footer pt-5 mt-5">
-            <div class="container py-5">
-                <div class="pb-4 mb-4" style="border-bottom: 1px solid rgba(226, 175, 24, 0.5) ;">
-                    <div class="row g-4">
-                        <div class="col-lg-3">
-                            <a href="#">
-                                <h1 class="text-primary mb-0">Fruitables</h1>
-                                <p class="text-secondary mb-0">Fresh products</p>
-                            </a>
-                        </div>
-                        
-                    </div>
-                </div>
-                <div class="row g-5">
-                    <div class="col-lg-3 col-md-6">
-                        <div class="footer-item">
-                            <h4 class="text-light mb-3">Why People Like us!</h4>
-                            <p class="mb-4">typesetting, remaining essentially unchanged. It was 
-                                popularised in the 1960s with the like Aldus PageMaker including of Lorem Ipsum.</p>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6">
-                        <div class="d-flex flex-column text-start footer-item">
-                            <h4 class="text-light mb-3">Shop Info</h4>
-                            <a class="btn-link" href="">About Us</a>
-                            <a class="btn-link" href="">Contact Us</a>
-                            <a class="btn-link" href="">Privacy Policy</a>
-                            <a class="btn-link" href="">Terms & Condition</a>
-                            <a class="btn-link" href="">Return Policy</a>
-                            <a class="btn-link" href="">FAQs & Help</a>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6">
-                        <div class="d-flex flex-column text-start footer-item">
-                            <h4 class="text-light mb-3">Account</h4>
-                            <a class="btn-link" href="">My Account</a>
-                            <a class="btn-link" href="">Shop details</a>
-                            <a class="btn-link" href="">Shopping Cart</a>
-                            <a class="btn-link" href="">Wishlist</a>
-                            <a class="btn-link" href="">Order History</a>
-                            <a class="btn-link" href="">International Orders</a>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6">
-                        <div class="footer-item">
-                            <h4 class="text-light mb-3">Contact</h4>
-                            <p>Address: 1429 Netus Rd, NY 48247</p>
-                            <p>Email: Example@gmail.com</p>
-                            <p>Phone: +0123 4567 8910</p>
-                            <p>Payment Accepted</p>
-                        
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+		<%@include file="/views/user/components/footer.jsp"%>
         <!-- Footer End -->
 
 
