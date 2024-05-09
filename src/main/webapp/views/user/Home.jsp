@@ -153,7 +153,7 @@
 	                                                </div>
 	                                                <div class="text-white bg-secondary px-3 py-1 rounded position-absolute" style="top: 10px; left: 10px;">Trái cây</div>
 	                                                <div class="p-4 border border-secondary border-top-0 rounded-bottom">
-	                                                    <h4>${pTraiCay.name}</h4>
+	                                                    <h4><a href="shop-detail?productId=${pTraiCay.id}" class=" text-body text-decoration-none">${pTraiCay.name}</a></h4>
 	                                                    <p>${pTraiCay.describe}</p>
 	                                                    <div class="d-flex justify-content-between flex-lg-wrap">
 	                                                        <p class="text-dark fs-5 fw-bold mb-0">${pTraiCay.price} đ / kg</p>
@@ -179,7 +179,7 @@
 	                                                </div>
 	                                                <div class="text-white bg-secondary px-3 py-1 rounded position-absolute" style="top: 10px; left: 10px;">Rau củ</div>
 	                                                <div class="p-4 border border-secondary border-top-0 rounded-bottom">
-	                                                    <h4>${pRauCu.name}</h4>
+	                                                    <h4><a href="shop-detail?productId=${pRauCu.id}" class=" text-body text-decoration-none">${pRauCu.name}</a></h4>
 	                                                    <p>${pRauCu.describe}</p>
 	                                                    <div class="d-flex justify-content-between flex-lg-wrap">
 	                                                        <p class="text-dark fs-5 fw-bold mb-0">${pRauCu.price} đ / kg</p>
@@ -205,7 +205,7 @@
 	                                                </div>
 	                                                <div class="text-white bg-secondary px-3 py-1 rounded position-absolute" style="top: 10px; left: 10px;">Trái cây nhập khẩu</div>
 	                                                <div class="p-4 border border-secondary border-top-0 rounded-bottom">
-	                                                    <h4>${pNhapkhau.name}</h4>
+	                                                    <h4><a href="shop-detail?productId=${pNhapkhau.id}" class=" text-body text-decoration-none">${pNhapkhau.name}</a></h4>
 	                                                    <p>${pNhapkhau.describe}</p>
 	                                                    <div class="d-flex justify-content-between flex-lg-wrap">
 	                                                        <p class="text-dark fs-5 fw-bold mb-0">${pNhapkhau.price} đ / kg</p>

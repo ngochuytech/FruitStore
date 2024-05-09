@@ -56,7 +56,7 @@
                             </p>
                             <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start" id="menu">
                                 <li class="nav-item">
-                                    <a href="admin-views-manage-orders.html" class="nav-link align-middle px-0">
+                                    <a href="${contextPath}/admin_manager_order" class="nav-link align-middle px-0">
                                         <i class="fs-4 bi bi-bag-check"></i> <span class="ms-1 d-none d-sm-inline">Quản lí đơn hàng</span>
                                     </a>
                                 </li>
@@ -66,7 +66,7 @@
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="admin-views-manage-product.html" class="nav-link px-0 align-middle">
+                                    <a href="${contextPath}/admin_manage_product" class="nav-link px-0 align-middle">
                                         <i class="fs-4 bi-grid"></i> <span class="ms-1 d-none d-sm-inline">Quản lí mặt hàng trái cây</span>
                                     </a>
                                 </li>

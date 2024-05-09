@@ -39,10 +39,11 @@ public class update_information extends HttpServlet{
 	
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		req.setCharacterEncoding("UTF-8");
 		AccountModel account = (AccountModel) SessionUtil.getInstance().getValue(req, "acc");
 		UserModel user = account.getUser();
 		String name =  req.getParameter("txtName");
-		String email = req.getParameter("txtEmail");
+		String email = account.getUsername();
 		String phone = req.getParameter("txtPhone");
 		String address = req.getParameter("txtAddress");
 		userService.updateInformation(user.getUserId(), name, phone, address, email);

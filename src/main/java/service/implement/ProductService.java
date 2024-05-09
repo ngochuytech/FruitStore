@@ -56,5 +56,15 @@ public class ProductService implements IProductService{
 	public ProductModel findById(int IDProduct) {
 		return productDAO.findById(IDProduct);
 	}
+
+	@Override
+	public List<ProductModel> getAllproduct() {
+		return productDAO.getAllproduct();
+	}
+
+	@Override
+	public void updateProduct(int id, String name, int quantity, float price, String describe, String image) {
+		productDAO.updateProduct(id, name, quantity, price, describe, image);
+	}
 	
 }

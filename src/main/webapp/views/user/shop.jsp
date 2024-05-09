@@ -58,7 +58,7 @@
 									placeholder="keywords" aria-describedby="search-icon-1">
 								<button type="submit" class="btn-search btn btn-secondary">
 									<a href="shop?search=${textSearch}"><span
-										id="search-icon-1" class=" p-4"><i class="fa fa-search"></a></i></span>
+										id="search-icon-1" class=" p-4"><i class="fa fa-search"></i></span></a>
 								</button>
 							</form>
 						</div>
