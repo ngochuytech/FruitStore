@@ -38,14 +38,7 @@ public class deleteToCart extends HttpServlet{
 					    if(item.getProduct().getId() == productModel.getId()) {
 					        iterator.remove(); // Sử dụng Iterator để xóa phần tử
 					    }
-					}
-//					for(OrdersDetailsModel item : listItem) {
-//						if(item.getProduct().getId()==productModel.getId()) {
-//									listItem.remove(item);
-//									System.out.println("Sản phẩm bị xóa");
-//							}
-//						}
-					
+					}				
 					SessionUtil.getInstance().putValue(req, "orderDetail", listItem);
 				resp.sendRedirect(req.getContextPath()+"/cart");
 			}

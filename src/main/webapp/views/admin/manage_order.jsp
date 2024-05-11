@@ -85,6 +85,7 @@
                                                 <th scope="col" class = "text-start ">ID đơn hàng</th>
                                                 <th scope="col">Ngày đặt mua</th>
                                                 <th scope="col">Tên khách hàng</th>
+                                                <th scope="col">Địa điểm</th>
                                                 <th scope="col" >Tổng giá</th>
                                                 <th scope="col" >Tình trạng</th>
                                                 <th scope="col" class= "text-end">Chi tiết</th>
@@ -95,7 +96,8 @@
 	                                            <tr>
 	                                                <th scope="row" class = "py-5 text-start">${o.id}</th>
 	                                                <td class="py-5">${o.date_Create}</td>
-	                                                <td class="py-5 ">${o.getUserModel().getuName()}</td>
+	                                                <td class="py-5 ">${o.address}</td>
+	                                                 <td class="py-5 " >${o.total_Price}đ</td>
 	                                                <td class="py-5 " >${o.total_Price}đ</td>
 	                                                <td class="py-5 text-secondary">${o.status}</td>
 	                                                <td class="py-5 text-end" >

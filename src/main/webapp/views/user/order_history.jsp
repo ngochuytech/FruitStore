@@ -60,6 +60,8 @@
                                         <tr class="table-dark">
                                             <th scope="col" class = "text-start ">Id đơn hàng</th>
                                             <th scope="col">Ngày đặt mua</th>
+                                            <th scope="col">Ngày xác nhận</th>
+                                        	<th scope="col">Địa điểm</th>
                                             <th scope="col">Tình trạng</th>
                                             <th scope="col">Tổng giá</th>
                                             <th scope="col">Chi tiết</th>
@@ -70,6 +72,8 @@
 	                                        <tr>
 	                                            <th scope="row" class = "py-5 text-start">${o.id}</th>
 	                                            <td class="py-5">${o.date_Create}</td>
+	                                            <td class="py-5">${o.date_Confirm}</td>
+	                                            <td class="py-5">${o.address}</td>
 	                                            <c:if test="${o.status.equals(\"Đang chờ duyệt\")}">
 	                                            	<td class="py-5 text-warning">${o.status}</td>
 	                                            </c:if> 

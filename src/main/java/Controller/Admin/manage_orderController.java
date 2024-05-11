@@ -57,6 +57,7 @@ public class manage_orderController extends HttpServlet{
 			else if(action.equals("cancel")) {
 				orderService.updateStatus(order.get(Integer.parseInt(idModal)).getId(), "Đã hủy đơn");
 			}
+			orderService.updateDate_Confirm(order.get(Integer.parseInt(idModal)).getId());
 		}
 		resp.sendRedirect(req.getContextPath()+"/admin_manager_order");
 	}

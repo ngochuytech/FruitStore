@@ -16,9 +16,11 @@ public class OrderDAO extends AbstractDAO<OrdersModel> implements IOrderDAO {
 	}
 
 	@Override
-	public void updateTotalPrice(int id, float Total) {
-		String sql = "Update Orders set Total_price = ? where ID = ?";
-		update(sql, Total, id);
+	public void updateTotalPrice(int id, String address, float Total) {
+		String sql = "update Orders\r\n"
+				+ "set Total_price = ?, Delivery_Address = ?\r\n"
+				+ "where ID=?";
+		update(sql, Total, address, id);
 	}
 
 	@Override
@@ -30,7 +32,7 @@ public class OrderDAO extends AbstractDAO<OrdersModel> implements IOrderDAO {
 
 	@Override
 	public List<OrdersModel> findByUser(int id) {
-		String sql = "Select Orders.ID,((CONVERT([varchar](20),Date_Created,(105))+' ')+CONVERT([varchar](20),Date_Created,(108))) as Date_Created,ID_User,Total_price,[Status],[User].IDuser,[User].userName,[User].Number,[User].[Address],[User].Email,[User].roleId,[Role].roleId,[Role].roleName from Orders\r\n"
+		String sql = "Select Orders.ID,((CONVERT([varchar](20),Date_Created,(105))+' ')+CONVERT([varchar](20),Date_Created,(108))) as Date_Created,((CONVERT([varchar](20),Date_Confirm,(105))+' ')+CONVERT([varchar](20),Date_Confirm,(108))) as Date_Confirm, Delivery_Address, ID_User,Total_price,[Status],[User].IDuser,[User].userName,[User].Number,[User].[Address],[User].Email,[User].roleId,[Role].roleId,[Role].roleName from Orders\r\n"
 				+ "inner join [User] on [User].IDuser=Orders.ID_User\r\n"
 				+ "inner join [Role] on [Role].roleId = [User].roleId\r\n"
 				+ "where Orders.ID_User = ?";
@@ -40,9 +42,9 @@ public class OrderDAO extends AbstractDAO<OrdersModel> implements IOrderDAO {
 
 	@Override
 	public List<OrdersModel> getAllbyWaiting() {
-		String sql = "Select Orders.ID,((CONVERT([varchar](20),Date_Created,(105))+' ')+CONVERT([varchar](20),Date_Created,(108))) as Date_Created,ID_User,Total_price,[Status],[User].IDuser,[User].userName,[User].Number,[User].[Address],[User].Email,[User].roleId,[Role].roleId,[Role].roleName from Orders\r\n"
+		String sql = "Select Orders.ID,((CONVERT([varchar](20),Date_Created,(105))+' ')+CONVERT([varchar](20),Date_Created,(108))) as Date_Created,((CONVERT([varchar](20),Date_Confirm,(105))+' ')+CONVERT([varchar](20),Date_Confirm,(108))) as Date_Confirm, Delivery_Address, ID_User,Total_price,[Status],[User].IDuser,[User].userName,[User].Number,[User].[Address],[User].Email,[User].roleId,[Role].roleId,[Role].roleName from Orders\r\n"
 				+ "inner join [User] on [User].IDuser=Orders.ID_User\r\n"
-				+ "inner join [Role] on [Role].roleId = [User].roleId\r\n"
+				+ "inner join [Role] on [Role].roleId = [User].roleId "
 				+ "where [Status] = N'Đang chờ duyệt'";
 		List<OrdersModel> list = query(sql, new OrderMapper());
 		return list;
@@ -52,6 +54,14 @@ public class OrderDAO extends AbstractDAO<OrdersModel> implements IOrderDAO {
 	public void updateStatus(int id, String status) {
 		String sql = "Update Orders set [Status] = ? where ID = ?";
 		update(sql, status, id);
+	}
+
+	@Override
+	public void updateDate_Confirm(int id) {
+		String sql = "update Orders\r\n"
+				+ "set Date_Confirm = ((CONVERT([varchar](20),getdate(),(105))+' ')+CONVERT([varchar](20),getdate(),(108)))\r\n"
+				+ "where ID = ?";
+		update(sql,id);
 	}
 
 

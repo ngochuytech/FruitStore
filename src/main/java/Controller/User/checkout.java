@@ -45,11 +45,16 @@ public class checkout extends HttpServlet{
 	
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		req.setCharacterEncoding("UTF-8");
 		AccountModel account = (AccountModel) SessionUtil.getInstance().getValue(req, "acc");
 		UserModel user = account.getUser();
 		List<OrdersDetailsModel> listItem = (List<OrdersDetailsModel>)SessionUtil.getInstance().getValue(req, "orderDetail");
-		if(listItem!=null) {
+		if(listItem!=null && listItem.size()!=0) {
 			OrdersModel order = new OrdersModel();
+			String address = req.getParameter("UserAddress");
+			if(address==null || address=="") {
+				address = user.getAddress();
+			}
 //			SimpleDateFormat format =  new SimpleDateFormat("dd-MM-yyyy HH:mm:ss");
 //			order.setDate_Create(format.format(new Date()));
 			int idOrder = orderService.create(user);
@@ -60,9 +65,9 @@ public class checkout extends HttpServlet{
 				orderDetailService.create(item);
 				TongTien += item.getQuantity() * item.getPrice();
 			}
-			
+			order.setAddress(address);
 			order.setTotal_Price(TongTien);
-			orderService.updateTotalPrice(idOrder, TongTien);
+			orderService.updateTotalPrice(idOrder, address, TongTien);
 			System.out.println("Tạo đơn hàng thành công");	
 			SessionUtil.getInstance().removeValue(req, "orderDetail");
 			resp.sendRedirect(req.getContextPath()+"/home");

@@ -45,7 +45,7 @@
         </div>
         <!-- Single Page Header End -->
 
-
+		<form action = "${contextPath}/checkout" method="post">
         <!-- Checkout Page Start -->
         <div class="container-fluid py-5">
             <div class="container py-5">
@@ -127,15 +127,16 @@
                             </div>
                             
                             <div class="row g-4 text-center align-items-center justify-content-center pt-4">
-                            	<form action = "${contextPath}/checkout" method="post">
+                            	
                               	  	<input type="submit" name="submit" value="Đặt hàng" class="btn border-secondary py-3 px-4 text-uppercase w-100 text-primary">
-                              	</form>
+                              	
                             </div>
                         </div>
                     </div>
             </div>
         </div>
         <!-- Checkout Page End -->
+        </form>
 
 
         <!-- Footer Start -->
