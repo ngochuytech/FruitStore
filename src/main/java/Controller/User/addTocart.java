@@ -62,9 +62,11 @@ public class addTocart extends HttpServlet{
 						listItem.add(item);
 					}
 					SessionUtil.getInstance().putValue(req, "orderDetail", listItem);
+				
 				}
-				resp.sendRedirect(req.getContextPath()+"/cart");
+							
 			}
+			resp.sendRedirect(req.getContextPath()+"/cart");
 		}
 	}
 	

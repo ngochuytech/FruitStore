@@ -80,6 +80,22 @@
                                 
                                 <div class="tab-content" id="pills-tabContent">
                                     <div class="tab-pane fade show active" id="pills-day" role="tabpanel" aria-labelledby="pills-day-tab">
+                                        <div class="btn-group-lg text-end">
+                                        	<form action="${contextPath}/admin_manage_product" method="get">
+                                            <div class="input-group mb-3">
+                                                <input name="txtSearch" value ="${textSearch}" type="text" class="form-control" placeholder="Nhập tên sản phẩm cần tìm kiếm" aria-label="Recipient's username" aria-describedby="basic-addon2">
+                                                <div class="input-group-append">
+                                                    <button class="btn btn-primary text-white" type="submit">
+                                                        Tìm kiếm
+                                                    </button>
+                                                </div>
+                                            </div>
+                                            </form>
+                                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#myAddModal">
+                                                <a class="text-white">Thêm</a>
+                                                <i class="bi bi-plus-circle text-white"></i>
+                                            </button>
+                                        </div>
                                         <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                                             <div class="table-responsive py-4">
                                                 <table class="table">
@@ -126,29 +142,34 @@
                                             <h4 class="modal-title">Thêm sản phẩm</h4>
                                                 <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
                                         </div>
-                        
+                        		<form action="${contextPath}/addProduct" method="post">
                                 <!-- Modal body -->
                                         <div class="modal-body">
-                                            <form>
                                                 <div class="form-group">
-                                                    <label for="recipient-name" class="col-form-label">ID sản phẩm:</label>
-                                                    <input type="text" class="form-control" id="recipient-id">
                                                     <label for="recipient-name" class="col-form-label">Tên sản phẩm:</label>
-                                                    <input type="text" class="form-control" id="recipient-name">
+                                                    <input type="text" class="form-control" name="txtNameProduct" id="recipient-name">
+                                                    <label for="recipient-name" class="col-form-label">Thể loại:</label>
+                                                  	<select class="form-control" name="category">
+                                                  		<c:forEach items="${listCategory}" var="c">
+                                                  			<option value="${c.id}">${c.getName()}</option>
+                                                        </c:forEach>
+                                                  	</select>
                                                     <label for="recipient-name" class="col-form-label">Số lượng:</label>
-                                                    <input type="text" class="form-control" id="recipient-quantity">
+                                                    <input type="text" class="form-control" name="txtQuantityProduct" id="recipient-quantity">
                                                     <label for="recipient-name" class="col-form-label">Giá cả:</label>
-                                                    <input type="text" class="form-control" id="recipient-price">
+                                                    <input type="text" class="form-control" name="txtPriceProduct" id="recipient-price">
                                                     <label for="recipient-name" class="col-form-label">Mô tả:</label>
-                                                    <input type="text" class="form-control" id="recipient-decription">
+                                                    <input type="text" class="form-control" name="txtDescribeProduct" id="recipient-decription">
+                                                    <label for="recipient-name" class="col-form-label">URL ảnh:</label>
+                                                  	<input type="text" class="form-control" name="txtImageProduct" id="recipient-image">
                                                 </div>
-                                            </form>
                                         </div>
                                         <!-- Modal footer -->
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Đóng</button>
-                                            <button type="button" class="btn btn-success" data-bs-dismiss="modal">Thêm vào website</button>
+                                            <button type="submit" class="btn btn-success" >Thêm vào website</button>
                                         </div>
+                                        </form>
                                     </div>
                                 </div>
                             </div>
@@ -169,6 +190,17 @@
                                               <div class="form-group">
                                                   <label for="recipient-name" class="col-form-label">Tên sản phẩm:</label>
                                                   <input type="text" class="form-control" name="txtNameProduct" value="${p.name}" id="recipient-name">
+                                                  <label for="recipient-name" class="col-form-label">Thể loại:</label>
+                                                  <select class="form-control" name="category">
+                                                  		<c:forEach items="${listCategory}" var="c">
+                                                  			<c:if test="${p.category.getId() == c.id}">
+                                                  				<option value="${c.id}" selected="selected">${c.getName()}</option>
+                                                  			</c:if>
+                                                  			<c:if test="${p.category.getId() != c.id}">
+                                                  				<option value="${c.id}">${c.getName()}</option>
+                                                  			</c:if>
+                                                        </c:forEach>
+                                                  </select>
                                                   <label for="recipient-name" class="col-form-label">Số lượng:</label>
                                                   <input type="text" class="form-control" name="txtQuantityProduct" value="${p.quantity}" id="recipient-quantity">
                                                   <label for="recipient-name" class="col-form-label">Giá cả:</label>

@@ -46,18 +46,28 @@ public class registerController extends HttpServlet{
 		// error: Kiểm tra xem trong Database đã có email chưa, nếu chưa có (null).
 		AccountModel error =  accountService.findByUsername(email);
 		// Đăng ký thành công - Truyền account vào bảng account trong Database
-		if(error==null && password.equals(reppassword)) {
+		if(name==null || name=="")
+		{
+			req.setAttribute("mess", "Tên không được bỏ trống, vui lòng thử lại");
+			req.setAttribute("anounc","alert alert-danger");
+		}
+		else if(password.equals(reppassword) == false) {
+			req.setAttribute("mess", "Mật khẩu của bạn không trùng khớp, vui lòng thử lại");
+			req.setAttribute("anounc","alert alert-danger");
+		}
+		else if(password == "") {
+			req.setAttribute("mess", "Mật khẩu của bạn không được bỏ trống, vui lòng thử lại");
+			req.setAttribute("anounc","alert alert-danger");
+		}
+		else if(error!=null) {
+			req.setAttribute("mess", "Email của bạn đã tồn tại, vui lòng thử lại");
+			req.setAttribute("anounc","alert alert-danger");
+		}
+		else if(error==null && password.equals(reppassword)) {
 			accountService.insert(accountModel);
 			resp.sendRedirect(req.getContextPath()+"/login");
 			return;
 		}
-		else if(password != reppassword)
-			req.setAttribute("mess", "Mật khẩu của bạn không trùng khớp, vui lòng thử lại");
-		else if(password == "")
-			req.setAttribute("mess", "Mật khẩu của bạn không được bỏ trống, vui lòng thử lại");
-		else
-			req.setAttribute("mess", "Email của bạn đã tồn tại, vui lòng thử lại");
-		req.setAttribute("anounc","alert alert-danger");
 		req.getRequestDispatcher("/views/auth/register.jsp").forward(req, resp);
 	}
 }

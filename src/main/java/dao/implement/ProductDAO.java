@@ -96,11 +96,36 @@ public class ProductDAO extends AbstractDAO<ProductModel> implements IProductDAO
 	}
 
 	@Override
-	public void updateProduct(int id, String name, int quantity, float price, String describe, String image) {
+	public void updateProduct(int id, String name, int quantity, int idCategory, float price, String describe, String image) {
 		String sql ="update Products\r\n"
-				+ "set [Name] = ?, Price = ?, Quantity = ?, Describe = ?, [Image] = ?\r\n"
+				+ "set [Name] = ?, Price = ?, Quantity = ?, Describe = ?, [Image] = ?, ID_Category = ?\r\n"
 				+ "where ID = ?";
-		update(sql, name, price, quantity, describe, image, id);
+		update(sql, name, price, quantity, describe, image, idCategory, id);
+	}
+
+	@Override
+	public int getQuantity(int id) {
+		String sql = "select Quantity from Products\r\n"
+				+ "inner join Category on Products.ID_Category=Category.ID\r\n"
+				+ "where Products.ID=?";
+		return count(sql, id);
+	}
+
+	@Override
+	public int insertProduct(String name, int quantity, int idCategory, float price, String describe,
+			String image) {
+		String sql ="insert into Products([Name],Price,Quantity,Describe,[Image],ID_Category)\r\n"
+				+ "values (?,?,?,?,?,?)";
+		return insert(sql,name,price,quantity,describe,image,idCategory);
+	}
+
+	@Override
+	public List<ProductModel> findbyname(String nameProduct) {
+		String sql = "select * from Products\r\n"
+				+ "inner join Category on Products.ID_Category=Category.ID\r\n"
+				+ "where Products.[Name] like ?";
+		List<ProductModel> list = query(sql, new ProductMapper(), "%"+nameProduct+"%");
+		return list;
 	}
 	
 }
