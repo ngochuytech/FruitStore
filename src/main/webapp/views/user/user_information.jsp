@@ -91,13 +91,13 @@
                             <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12 py-0">
                                 <div class="form-group">
                                     <label for="phone">Điện thoại</label>
-                                    <input type="text" class="form-control" value="${UserPhone}" id="phone" placeholder="phone number lấy từ CSDL">
+                                    <input type="text" class="form-control" value="${UserPhone}" id="phone" placeholder="">
                                 </div>
                             </div>
                             <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12 py-0">
                                 <div class="form-group">
                                     <label for="website">Địa chỉ</label>
-                                    <input type="url" class="form-control" value="${UserAddress}" id="website" placeholder="Website url">
+                                    <input type="url" class="form-control" value="${UserAddress}" id="website" placeholder="">
                                 </div>
                             </div>
                         </div>

@@ -14,6 +14,7 @@ import Model.AccountModel;
 import Model.RoleModel;
 import Model.UserModel;
 import service.IAccountService;
+import service.IUserService;
 import utils.FormUtil;
 
 @WebServlet(urlPatterns = {"/register"})
@@ -22,6 +23,9 @@ public class registerController extends HttpServlet{
 	@Inject
 	private IAccountService accountService;
 	
+	@Inject
+	private IUserService userService;
+	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		req.getRequestDispatcher("/views/auth/register.jsp").forward(req, resp);
@@ -29,6 +33,7 @@ public class registerController extends HttpServlet{
 	
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		req.setCharacterEncoding("UTF-8");
 		AccountModel accountModel = FormUtil.toModel(AccountModel.class, req);
 		UserModel userModel = FormUtil.toModel(UserModel.class, req);
 		RoleModel roleModel = FormUtil.toModel(RoleModel.class, req);
@@ -64,8 +69,11 @@ public class registerController extends HttpServlet{
 			req.setAttribute("anounc","alert alert-danger");
 		}
 		else if(error==null && password.equals(reppassword)) {
-			accountService.insert(accountModel);
-			resp.sendRedirect(req.getContextPath()+"/login");
+			int id = userService.insert(name, email);
+			accountService.insert(accountModel,id);
+			req.setAttribute("mess", "Đăng ký thành công");
+			req.setAttribute("anounc", "alert alert-success");
+			req.getRequestDispatcher("/views/auth/login.jsp").forward(req, resp);	
 			return;
 		}
 		req.getRequestDispatcher("/views/auth/register.jsp").forward(req, resp);

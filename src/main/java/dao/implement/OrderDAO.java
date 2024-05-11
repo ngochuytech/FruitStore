@@ -30,8 +30,8 @@ public class OrderDAO extends AbstractDAO<OrdersModel> implements IOrderDAO {
 
 	@Override
 	public List<OrdersModel> findByUser(int id) {
-		String sql = "Select Orders.ID,((CONVERT([varchar](20),Date_Created,(105))+' ')+CONVERT([varchar](20),Date_Created,(108))) as Date_Created,ID_User,Total_price,[Status],[User].ID,[User].userName,[User].Number,[User].[Address],[User].Email,[User].roleId,[Role].roleId,[Role].roleName from Orders\r\n"
-				+ "inner join [User] on [User].ID=Orders.ID_User\r\n"
+		String sql = "Select Orders.ID,((CONVERT([varchar](20),Date_Created,(105))+' ')+CONVERT([varchar](20),Date_Created,(108))) as Date_Created,ID_User,Total_price,[Status],[User].IDuser,[User].userName,[User].Number,[User].[Address],[User].Email,[User].roleId,[Role].roleId,[Role].roleName from Orders\r\n"
+				+ "inner join [User] on [User].IDuser=Orders.ID_User\r\n"
 				+ "inner join [Role] on [Role].roleId = [User].roleId\r\n"
 				+ "where Orders.ID_User = ?";
 		List<OrdersModel> list = query(sql, new OrderMapper(), id);
@@ -40,8 +40,8 @@ public class OrderDAO extends AbstractDAO<OrdersModel> implements IOrderDAO {
 
 	@Override
 	public List<OrdersModel> getAllbyWaiting() {
-		String sql = "Select Orders.ID,((CONVERT([varchar](20),Date_Created,(105))+' ')+CONVERT([varchar](20),Date_Created,(108))) as Date_Created,ID_User,Total_price,[Status],[User].ID,[User].userName,[User].Number,[User].[Address],[User].Email,[User].roleId,[Role].roleId,[Role].roleName from Orders\r\n"
-				+ "inner join [User] on [User].ID=Orders.ID_User\r\n"
+		String sql = "Select Orders.ID,((CONVERT([varchar](20),Date_Created,(105))+' ')+CONVERT([varchar](20),Date_Created,(108))) as Date_Created,ID_User,Total_price,[Status],[User].IDuser,[User].userName,[User].Number,[User].[Address],[User].Email,[User].roleId,[Role].roleId,[Role].roleName from Orders\r\n"
+				+ "inner join [User] on [User].IDuser=Orders.ID_User\r\n"
 				+ "inner join [Role] on [Role].roleId = [User].roleId\r\n"
 				+ "where [Status] = N'Đang chờ duyệt'";
 		List<OrdersModel> list = query(sql, new OrderMapper());

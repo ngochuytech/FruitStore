@@ -52,18 +52,20 @@
                 <h1 class="mb-4">Hóa đơn thanh toán</h1>
                     <div class="row g-5">
                         <div class="col-md-12 col-lg-6 col-xl-7">
-                            <div class="form-item">
-                                <label class="form-label my-3">Họ và tên</label>
-                                <input type="text" name = "UserName" value = "${UserName}" class="form-control" placeholder="Nhập họ và tên của bạn">
-                            </div>
-                            <div class="form-item">
-                                <label class="form-label my-3">Email</label>
-                                <input type="email" name = "UserEmail" value = "${UserEmail}" class="form-control" placeholder="Nhập email của bạn">
-                            </div>  
-                            <div class="form-item">
-                                <label class="form-label my-3">Số điện thoại</label>
-                                <input type="tel" name = "UserPhone" value = "${UserPhone}" class="form-control" placeholder="Nhập số điện thoại của bạn">
-                            </div>
+                        	<fieldset disabled>
+	                            <div class="form-item">
+	                                <label class="form-label my-3">Họ và tên</label>
+	                                <input type="text" name = "UserName" value = "${UserName}" class="form-control" placeholder="Nhập họ và tên của bạn">
+	                            </div>
+	                            <div class="form-item">
+	                                <label class="form-label my-3">Email</label>
+	                                <input type="email" name = "UserEmail" value = "${UserEmail}" class="form-control" placeholder="Nhập email của bạn">
+	                            </div>  
+	                            <div class="form-item">
+	                                <label class="form-label my-3">Số điện thoại</label>
+	                                <input type="tel" name = "UserPhone" value = "${UserPhone}" class="form-control" placeholder="Nhập số điện thoại của bạn">
+	                            </div>
+                            </fieldset>
                             <div class="form-item">
                                 <label class="form-label my-3">Địa chỉ</label>
                                 <input type="text" name = "UserAddress" value = "${UserAddress}" class="form-control" placeholder="Nhập địa chỉ của bạn">

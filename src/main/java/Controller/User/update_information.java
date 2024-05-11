@@ -28,7 +28,6 @@ public class update_information extends HttpServlet{
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		AccountModel account = (AccountModel) SessionUtil.getInstance().getValue(req, "acc");
 		UserModel user = account.getUser();
-		
 		req.setAttribute("userName", user.getuName());
 		req.setAttribute("userEmail", user.getEmail());
 		req.setAttribute("userPhone", user.getSdt());
@@ -47,7 +46,6 @@ public class update_information extends HttpServlet{
 		String phone = req.getParameter("txtPhone");
 		String address = req.getParameter("txtAddress");
 		userService.updateInformation(user.getUserId(), name, phone, address, email);
-		
 		SessionUtil.getInstance().removeValue(req, "acc");
 		AccountModel accountModel = accountService.findByUsernameAndPassword(account.getUsername(), account.getPassword());
 		SessionUtil.getInstance().putValue(req, "acc", accountModel);
