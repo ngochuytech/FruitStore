@@ -11,7 +11,7 @@ public class OrderDAO extends AbstractDAO<OrdersModel> implements IOrderDAO {
 
 	@Override
 	public int create(UserModel user) {
-		String sql = "Insert into Orders(ID_User,Status) values (?,N'Đang chờ duyệt')";
+		String sql = "Insert into Orders(ID_User,[Status]) values (?,N'Đang chờ duyệt')";
 		return insert(sql, user.getUserId());
 	}
 
@@ -59,7 +59,7 @@ public class OrderDAO extends AbstractDAO<OrdersModel> implements IOrderDAO {
 	@Override
 	public void updateDate_Confirm(int id) {
 		String sql = "update Orders\r\n"
-				+ "set Date_Confirm = ((CONVERT([varchar](20),getdate(),(105))+' ')+CONVERT([varchar](20),getdate(),(108)))\r\n"
+				+ "set Date_Confirm = getdate()\r\n"
 				+ "where ID = ?";
 		update(sql,id);
 	}

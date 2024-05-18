@@ -21,13 +21,11 @@ public class addProduct extends HttpServlet{
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		req.setCharacterEncoding("UTF-8");
 		int category = Integer.parseInt(req.getParameter("category"));
-		System.out.println("category = " + category);
 		String name = req.getParameter("txtNameProduct");
-		int quantity = Integer.parseInt(req.getParameter("txtQuantityProduct"));
 		float price = Float.parseFloat(req.getParameter("txtPriceProduct"));
 		String describe = req.getParameter("txtDescribeProduct");
 		String image = req.getParameter("txtImageProduct");
-		productService.insertProduct(name, quantity, category, price, describe, image);
+		productService.insertProduct(name, category, price, describe, image);
 		resp.sendRedirect(req.getContextPath()+"/admin_manage_product");
 	}
 }

@@ -65,7 +65,6 @@
 	                                <p class="mb-3">Category: ${product.category.getName()}</p>
 	                                <h5 class="fw-bold mb-3">${product.price} đ</h5>
 	                                <p class="mb-4">${product.describe}</p>
-	                                <p style="color: orange;">Số lượng còn lại: ${product.quantity}</p>
 	                                <div class="input-group quantity mb-5" style="width: 100px;">
 	                                    <div class="input-group-btn">
 	                                        <button type = "button" class="btn btn-sm btn-minus rounded-circle bg-light border" >

@@ -45,11 +45,10 @@ public class manage_product extends HttpServlet{
 		int category = Integer.parseInt(req.getParameter("category")) ;
 		int id = Integer.parseInt(req.getParameter("productId"));
 		String name = req.getParameter("txtNameProduct");
-		int quantity = Integer.parseInt(req.getParameter("txtQuantityProduct"));
 		float price = Float.parseFloat(req.getParameter("txtPriceProduct"));
 		String describe = req.getParameter("txtDescribeProduct");
 		String image = req.getParameter("txtImageProduct");
-		productService.updateProduct(id, name, quantity, category, price, describe, image);
+		productService.updateProduct(id, name, category, price, describe, image);
 		resp.sendRedirect(req.getContextPath()+"/admin_manage_product");
 	}
 }

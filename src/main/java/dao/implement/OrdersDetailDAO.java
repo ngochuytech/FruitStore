@@ -19,7 +19,7 @@ public class OrdersDetailDAO extends AbstractDAO<OrdersDetailsModel> implements 
 	public List<OrdersDetailsModel> findByOrder(int id) {
 		String sql = "select * from Orders_Details \r\n"
 				+ "inner join Products on Orders_Details.ID_Product = Products.ID\r\n"
-				+ "inner join Category on Products.ID_Category = Category.ID\r\n"
+				+ "inner join Category on Products.ID_Category = Category.IDcate\r\n"
 				+ "where ID_Order = ?";
 		List<OrdersDetailsModel> list = query(sql, new OrdersDetailMapper(), id);
 		return list;

@@ -55,8 +55,6 @@ public class checkout extends HttpServlet{
 			if(address==null || address=="") {
 				address = user.getAddress();
 			}
-//			SimpleDateFormat format =  new SimpleDateFormat("dd-MM-yyyy HH:mm:ss");
-//			order.setDate_Create(format.format(new Date()));
 			int idOrder = orderService.create(user);
 			float TongTien = 0;
 			for(int i=0;i<listItem.size();i++) {

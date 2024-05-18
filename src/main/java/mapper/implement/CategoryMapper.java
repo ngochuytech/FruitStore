@@ -12,7 +12,7 @@ public class CategoryMapper implements RowMapper<CategoryModel>{
 	public CategoryModel mapRow(ResultSet rs) {
 		try {
 			CategoryModel categoryModel = new CategoryModel();
-			categoryModel.setId(rs.getInt("ID"));
+			categoryModel.setId(rs.getInt("IDcate"));
 			categoryModel.setName(rs.getString("CategoryName"));
 			return categoryModel;
 		} catch (SQLException e) {

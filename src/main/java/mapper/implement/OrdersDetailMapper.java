@@ -13,7 +13,7 @@ public class OrdersDetailMapper implements RowMapper<OrdersDetailsModel>{
 	public OrdersDetailsModel mapRow(ResultSet rs) {
 		try {
 			OrdersDetailsModel detailsModel = new OrdersDetailsModel();
-			detailsModel.setId(rs.getInt("ID"));
+			detailsModel.setId(rs.getInt("IDod"));
 			detailsModel.setQuantity(rs.getInt("Quantity"));
 			detailsModel.setPrice(rs.getFloat("Price"));
 			detailsModel.setOrders(rs.getInt("ID_Order"));

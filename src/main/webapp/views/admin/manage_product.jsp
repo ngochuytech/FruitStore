@@ -103,7 +103,6 @@
                                                         <tr class="table-dark">
                                                             <th scope="col" class = "text-start ">ID sản phẩm</th>
                                                             <th scope="col">Tên sản phẩm</th>
-                                                            <th scope="col">Số lượng trong kho</th>
                                                             <th scope="col">Giá tiền</th>
                                                             <th scope="col" class="text-end">Chỉnh sửa</th>
                                                         </tr>
@@ -113,7 +112,6 @@
 	                                                        <tr>
 	                                                            <th scope="row" class = "py-5 text-start">${p.id}</th>
 	                                                            <td class="py-5">${p.name}</td>
-	                                                            <td class="py-5">${p.quantity}</td>
 	                                                            <td class="py-5" >${p.price}đ</td>
 	                                                            <td class="py-5">
 	                                                                <div class="text-end">
@@ -154,8 +152,6 @@
                                                   			<option value="${c.id}">${c.getName()}</option>
                                                         </c:forEach>
                                                   	</select>
-                                                    <label for="recipient-name" class="col-form-label">Số lượng:</label>
-                                                    <input type="text" class="form-control" name="txtQuantityProduct" id="recipient-quantity">
                                                     <label for="recipient-name" class="col-form-label">Giá cả:</label>
                                                     <input type="text" class="form-control" name="txtPriceProduct" id="recipient-price">
                                                     <label for="recipient-name" class="col-form-label">Mô tả:</label>
@@ -201,8 +197,6 @@
                                                   			</c:if>
                                                         </c:forEach>
                                                   </select>
-                                                  <label for="recipient-name" class="col-form-label">Số lượng:</label>
-                                                  <input type="text" class="form-control" name="txtQuantityProduct" value="${p.quantity}" id="recipient-quantity">
                                                   <label for="recipient-name" class="col-form-label">Giá cả:</label>
                                                   <input type="text" class="form-control" name="txtPriceProduct" value="${p.price}" id="recipient-price">
                                                   <label for="recipient-name" class="col-form-label">Mô tả:</label>

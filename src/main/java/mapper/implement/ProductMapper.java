@@ -16,15 +16,13 @@ public class ProductMapper implements RowMapper<ProductModel>{
 			productModel.setId(rs.getInt("ID"));
 			productModel.setName(rs.getString("Name"));
 			productModel.setPrice(rs.getFloat("Price"));
-			productModel.setQuantity(rs.getInt("Quantity"));
 			productModel.setDescribe(rs.getString("Describe"));
 			productModel.setImage(rs.getString("Image"));
-			CategoryModel categoryModel = new CategoryModel();
-			categoryModel.setId(rs.getInt(8));
-			categoryModel.setName(rs.getString(9));
+			CategoryModel categoryModel = new CategoryMapper().mapRow(rs);
 			productModel.setCategory(categoryModel);
 			return productModel;
 		} catch (SQLException e) {
+			System.out.println("Lỗi ở đây");
 			e.printStackTrace();
 			return null;
 		}
