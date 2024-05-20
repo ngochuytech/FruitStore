@@ -65,13 +65,11 @@ public class checkout extends HttpServlet{
 			}
 			order.setAddress(address);
 			order.setTotal_Price(TongTien);
-			orderService.updateTotalPrice(idOrder, address, TongTien);
-			System.out.println("Tạo đơn hàng thành công");	
+			orderService.updateTotalPrice(idOrder, address, TongTien);	
 			SessionUtil.getInstance().removeValue(req, "orderDetail");
 			resp.sendRedirect(req.getContextPath()+"/home");
 		}
 		else {
-			System.out.println("Không có sản phẩm trong giỏ hàng");
 			resp.sendRedirect(req.getContextPath()+"/cart");
 		}
 	}

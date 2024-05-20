@@ -49,7 +49,17 @@ public class update_information extends HttpServlet{
 		SessionUtil.getInstance().removeValue(req, "acc");
 		AccountModel accountModel = accountService.findByUsernameAndPassword(account.getUsername(), account.getPassword());
 		SessionUtil.getInstance().putValue(req, "acc", accountModel);
+		req.setAttribute("anounc", "alert alert-success");
+		req.setAttribute("mess", "Cập nhật thông tin cá nhân thành công");
 		
-		resp.sendRedirect(req.getContextPath()+"/user_information");
+		// Cập nhật thông tin vào trang user_information
+		req.setAttribute("UserName", accountModel.getUser().getuName());
+		req.setAttribute("UserEmail", accountModel.getUser().getEmail());
+		req.setAttribute("UserPhone", accountModel.getUser().getSdt());
+		req.setAttribute("UserAddress", accountModel.getUser().getAddress());
+		
+		RequestDispatcher rd = req.getRequestDispatcher("/views/user/user_information.jsp");
+		rd.forward(req, resp);
+
 	}
 }

@@ -20,6 +20,7 @@ public class user_information extends HttpServlet{
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		AccountModel account = (AccountModel) SessionUtil.getInstance().getValue(req, "acc");
 		UserModel user = account.getUser();	
+		req.setAttribute("UserRole", user.getRolemodel().getRoleId());
 		req.setAttribute("UserName", user.getuName());
 		req.setAttribute("UserEmail", user.getEmail());
 		req.setAttribute("UserPhone", user.getSdt());

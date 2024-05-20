@@ -159,12 +159,18 @@
                                 </tbody>
                             </table>
                         </div>
-                    </div>
+                    </div>	
                 </div>
   
         <!-- Modal footer -->
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Đóng</button>
+                	<form action="${contextPath}/order_history" method="post">
+	                	<input type="hidden" name="orderId" value="${orderGetTotal.get(i).getId()}">
+	                	<c:if test="${orderGetTotal.get(i).status.equals(\"Đang chờ duyệt\")}">
+	                		<button type="submit" class="btn btn-danger">Hủy đặt hàng</button>
+	                	</c:if>
+	                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Đóng</button>
+                	</form>
                 </div>
             </div>
         </div>

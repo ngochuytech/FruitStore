@@ -50,5 +50,12 @@ public class order_history extends HttpServlet{
 		RequestDispatcher rd = req.getRequestDispatcher("/views/user/order_history.jsp");	
 		rd.forward(req, resp);
 	}
-	
+	@Override
+	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		// Chức năng khách hàng hủy đơn khi đơn hàng chưa được duyệt
+		int idOrder = Integer.parseInt(req.getParameter("orderId"));
+		orderService.updateStatus(idOrder,"Đã hủy đơn");
+		orderService.updateDate_Confirm(idOrder);
+		resp.sendRedirect(req.getContextPath()+"/order_history");
+	}
 }

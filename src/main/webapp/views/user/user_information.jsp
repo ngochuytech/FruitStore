@@ -59,6 +59,10 @@
                             <h5 class="user-name">${UserName}</h5>
                         </div>
                         <div class=" justify-content-center my-4">
+                        	<c:if test="${UserRole == 1}">
+	                        	<a href="${contextPath}/admin_manager_order" class="btn border border-secondary px-4 py-3 text-primary w-100">Quản lý cửa hàng</a>
+	                            <div class = "py-1"> </div>
+                        	</c:if>
                             <a href="${contextPath}/update_information" class="btn border border-secondary px-4 py-3 text-primary w-100">Thay đổi thông tin</a>
                             <div class = "py-1"> </div>
                             <a href="${contextPath}/order_history" class="btn border border-secondary px-4 py-3  text-primary w-100">Lịch sử đơn hàng</a>
@@ -75,6 +79,7 @@
                             <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 py-2">
                                 <h4 class="mb-2 text-primary">Thông tin cá nhân</h4>
                             </div>
+                            <div class="${anounc}" role="alert">${mess}</div>
                             <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12 py-2">
                                 <div class="card">
                                     <label for="fullName">Họ và tên</label>
