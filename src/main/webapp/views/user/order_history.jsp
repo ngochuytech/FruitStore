@@ -83,6 +83,9 @@
 	                                            <c:if test="${o.status.equals(\"Đã hủy đơn\")}">
 	                                            	<td class="py-5 text-danger">${o.status}</td>
 	                                            </c:if> 
+	                                            <c:if test="${o.status.equals(\"Đã hủy đơn bởi khách hàng\")}">
+	                                            	<td class="py-5 text-danger">${o.status}</td>
+	                                            </c:if>
 	                                            <td class="py-5">${o.total_Price}đ</td>
 	                                            <td class="py-5 text-center">
 		                                            <button type="button" class="btn btn-primary" value ="${o.id}" data-bs-toggle="modal" data-bs-target="#myModal<%=idModal%>">

@@ -54,7 +54,7 @@ public class order_history extends HttpServlet{
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		// Chức năng khách hàng hủy đơn khi đơn hàng chưa được duyệt
 		int idOrder = Integer.parseInt(req.getParameter("orderId"));
-		orderService.updateStatus(idOrder,"Đã hủy đơn");
+		orderService.updateStatus(idOrder,"Đã hủy đơn bởi khách hàng");
 		orderService.updateDate_Confirm(idOrder);
 		resp.sendRedirect(req.getContextPath()+"/order_history");
 	}

@@ -48,6 +48,11 @@ public class OrderService implements IOrderService{
 	public void updateDate_Confirm(int id) {
 		orderDAO.updateDate_Confirm(id);
 	}
+
+	@Override
+	public List<OrdersModel> getAllbyStatusAndDate(String status, String Date) {
+		return orderDAO.getAllbyStatusAndDate(status, Date);
+	}
 	
 	
 }

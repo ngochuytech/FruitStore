@@ -12,5 +12,6 @@ public interface IOrderService {
 	void updateDate_Confirm(int id);
 	List<OrdersModel> getAll();
 	List<OrdersModel> getAllbyWaiting();
+	List<OrdersModel> getAllbyStatusAndDate(String status, String Date);
 	List<OrdersModel> findByUser(int id);
 }

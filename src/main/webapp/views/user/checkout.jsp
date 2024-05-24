@@ -117,8 +117,9 @@
 															totalPayment += item.getQuantity() * item.getPrice();
 														}
 													}
+													String formattedNumber = String.format("%.0f", totalPayment);
 													%>
-													<%=totalPayment %> đ	</p>
+													<%=formattedNumber %> đ	</p>
 											</div>
 										</td>
 									</tr>

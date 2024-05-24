@@ -64,5 +64,15 @@ public class OrderDAO extends AbstractDAO<OrdersModel> implements IOrderDAO {
 		update(sql,id);
 	}
 
+	@Override
+	public List<OrdersModel> getAllbyStatusAndDate(String status, String Date) {
+		String sql = "Select Orders.ID,((CONVERT([varchar](20),Date_Created,(105))+' ')+CONVERT([varchar](20),Date_Created,(108))) as Date_Created,((CONVERT([varchar](20),Date_Confirm,(105))+' ')+CONVERT([varchar](20),Date_Confirm,(108))) as Date_Confirm, Delivery_Address, ID_User,Total_price,[Status],[User].IDuser,[User].userName,[User].Number,[User].[Address],[User].Email,[User].roleId,[Role].roleId,[Role].roleName from Orders\r\n"
+				+ "inner join [User] on [User].IDuser=Orders.ID_User\r\n"
+				+ "inner join [Role] on [Role].roleId = [User].roleId "
+				+ "where [Status] = ? and CONVERT(DATE, Date_Confirm) = ?;";
+		List<OrdersModel> list = query(sql, new OrderMapper(),status, Date);
+		return list;
+	}
+
 
 }

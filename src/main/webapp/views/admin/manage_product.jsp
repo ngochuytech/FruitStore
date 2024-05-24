@@ -61,13 +61,13 @@
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="admin-views-manage-time.html" class="nav-link px-0 align-middle">
-                                        <i class="fs-4 bi-speedometer2"></i> <span class="ms-1 d-none d-sm-inline">Thống kê doanh thu</span> 
-                                    </a>
-                                </li>
-                                <li>
                                     <a href="${contextPath}/admin_manage_product" class="nav-link px-0 align-middle">
                                         <i class="fs-4 bi-grid"></i> <span class="ms-1 d-none d-sm-inline">Quản lí mặt hàng trái cây</span>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="${contextPath}/admin_manager_history_order" class="nav-link align-middle px-0">
+                                        <i class="fs-4 bi-speedometer2"></i> <span class="ms-1 d-none d-sm-inline">Lịch sử đơn hàng</span>
                                     </a>
                                 </li>
                             </ul>

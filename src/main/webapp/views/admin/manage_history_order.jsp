@@ -31,6 +31,9 @@
 
         <!-- Template Stylesheet -->
         <link href="${contextPath}/asset/css/user/style.css" rel="stylesheet">
+        
+        <!-- Calendar -->
+   		<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css" rel="stylesheet">
     </head>
 
     <body>
@@ -40,7 +43,7 @@
 
         <!-- Single Page Header start -->
         <div class="container-fluid page-header py-5">
-            <h1 class="text-center text-white display-6">Quản lí đơn hàng</h1>
+            <h1 class="text-center text-white display-6">Lịch sử đơn hàng</h1>
         </div>
         <!-- Single Page Header End -->
 
@@ -76,8 +79,21 @@
                     <!-- Nội dung của trang web bắt đầu từ đây-->
                     <div class="col py-3">
                         <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 px-5 py-1">
-                                <h3 class="mb-4 text-center">Quản lí đơn hàng</h3>
-                                <div class="table-responsive py-4">
+                        <h3 class="mb-4 text-center">Quản lí đơn hàng</h3>
+						<!-- Form lịch -->
+						<form action="${contextPath}/admin_manager_history_order" method="post">
+							  <div class="mb-3 col-4">
+								  <label class="form-label d-inline-block">Chọn kiểu:</label>
+								  <select class="form-select d-inline-block w-auto" name="kieu">
+									  <option value="1">Đơn hàng đã duyệt</option>
+		 							  <option value="2">Đơn hàng đã hủy</option>
+	 							  </select>      
+						          <label for="datepicker" class="form-label d-inline-block w-auto">Chọn ngày:</label>
+						          <input name ="date" value = "${defaultDate}" type="text" class="form-control d-inline-block w-auto" id="datepicker" placeholder="YYYY-MM-DD" readonly>
+						          <button type="submit" class="btn btn-primary">Lọc</button>
+						      </div>
+						</form>
+						<div class="table-responsive py-4">
                                     <table class="table">
                                         <thead>
                                             <tr class="table-dark">
@@ -98,7 +114,12 @@
 													<td class="py-5 " >${o.getUserModel().getuName()}</td>
 	                                                <td class="py-5 ">${o.address}</td>
 	                                                <td class="py-5 " >${o.total_Price}đ</td>
-	                                                <td class="py-5 text-secondary">${o.status}</td>
+	                                                <c:if test="${o.status.equals(\"Đã xác nhận\")}">
+		                                            	<td class="py-5 text-success">${o.status}</td>
+		                                            </c:if> 
+		                                            <c:if test="${o.status.equals(\"Đã hủy đơn\")}">
+		                                            	<td class="py-5 text-danger">${o.status}</td>
+		                                            </c:if> 
 	                                                <td class="py-5 text-end" >
 	                                                    <div class="btn-group">
 	                                                        <button type="button" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#myModal<%=idModal%>">
@@ -186,13 +207,8 @@
                 </div>
   
         <!-- Modal footer -->
-                <div class="modal-footer">
-               	 	<form action = "${contextPath}/admin_manager_order" method="post">
-               	 		<input type="hidden" name="modalId" value="${i}">
-	                    <button type="submit" class="btn btn-success" name="action" value ="accept">Xác nhận đơn hàng</button>
-	                    <button type="submit" class="btn btn-danger"  name="action" value ="cancel">Hủy đơn hàng</button>
-                    </form>
-                </div>
+		
+		<!-- End model footer -->
             </div>
         </div>
     </div>
@@ -217,9 +233,24 @@
     <script src="${contextPath}/asset/lib/waypoints/waypoints.min.js"></script>
     <script src="${contextPath}/asset/lib/lightbox/js/lightbox.min.js"></script>
     <script src="${contextPath}/asset/lib/owlcarousel/owl.carousel.min.js"></script>
-
+     <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- Bootstrap 5 JS -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <!-- Bootstrap Datepicker JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
     <!-- Template Javascript -->
     <script src="${contextPath}/asset/js/user/main.js"></script>
+    
+    <script>
+    $(document).ready(function(){
+        $('#datepicker').datepicker({
+            format: 'yyyy-mm-dd',
+            autoclose: true,
+            todayHighlight: true,
+        });
+    });
+    </script>
     </body>
 
 </html>
