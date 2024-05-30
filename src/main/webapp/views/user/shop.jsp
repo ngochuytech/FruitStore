@@ -122,8 +122,7 @@
 													<p class="text-dark fs-5 fw-bold mb-0">${o.price}đ/kg</p>
 													<a href="addTocart?productId=${o.id}"
 														class="btn border border-secondary rounded-pill px-3 text-primary"><i
-														class="fa fa-shopping-bag me-2 text-primary"></i> Add to
-														cart</a>
+														class="fa fa-shopping-bag me-2 text-primary"></i> Thêm vào giỏ hàng</a>
 												</div>
 											</div>
 										</div>

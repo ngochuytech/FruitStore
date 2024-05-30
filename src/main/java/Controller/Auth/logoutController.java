@@ -9,12 +9,15 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import utils.SessionUtil;
+
 @WebServlet(urlPatterns = "/logout")
 public class logoutController extends HttpServlet{
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		HttpSession session = req.getSession();
 		session.removeAttribute("acc");
+		SessionUtil.getInstance().removeValue(req, "orderDetail");
 		resp.sendRedirect(req.getContextPath()+"/login");
 	}
 }

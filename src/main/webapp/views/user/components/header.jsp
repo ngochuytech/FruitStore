@@ -52,13 +52,13 @@
 						class="fa fa-shopping-bag fa-2x"></i>
 					</a>
 					<c:if test="${sessionScope.acc == null}">
-						<a href="/FruitStore/login" class="my-auto btn btn-primary" > Login </a> 
+						<a href="/FruitStore/login" class="my-auto btn btn-primary" > Đăng nhập </a> 
 					</c:if> 
 					<c:if test="${sessionScope.acc != null}">
 						<a href="${contextPath}/user_information"
 							class="my-auto me-4"> <i class="fas fa-user fa-2x"></i>
 						</a> 
-						<a href="/FruitStore/logout" class="my-auto btn btn-primary "> Logout </a>
+						<a href="/FruitStore/logout" class="my-auto btn btn-primary "> Đăng xuất </a>
 					</c:if> 
 					
 				</div>

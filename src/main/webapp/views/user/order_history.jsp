@@ -128,6 +128,7 @@
                                 <thead>
                                     <tr>
                                         <th scope="col">ID sản phẩm</th>
+                                        <th scope="col">Ảnh sản phẩm</th>
                                         <th scope="col">Tên sản phẩm</th>
                                         <th scope="col">Số lượng</th>
                                         <th scope="col">Giá</th>
@@ -138,9 +139,14 @@
                                 	<c:forEach begin="0" end="${sizeOrderDetail.get(i)}" var="j">
                                     <tr>
                                         <td class="py-5">${orderDList.get(i).get(j).getId_product()}</td>
+                                        <td class="py-5">
+                                            <div class="d-flex align-items-center">
+                                                <img src="${orderDList.get(i).get(j).getProduct().getImage()}" class="img-fluid me-5 rounded-0" style="width: 60px; height: 60px;" alt="">
+                                            </div>
+                                        </td>
                                         <td class="py-5">${orderDList.get(i).get(j).product.getName()}</td>
                                         <td class="py-5">${orderDList.get(i).get(j).quantity}</td>
-                                        <td class="py-5 px-5" >${orderDList.get(i).get(j).price}đ</td>
+                                        <td class="py-5" >${orderDList.get(i).get(j).price}đ</td>
                                         <td class="py-5">${orderDList.get(i).get(j).quantity * orderDList.get(i).get(j).price}đ</td>
                                     </tr>
                                      </c:forEach>

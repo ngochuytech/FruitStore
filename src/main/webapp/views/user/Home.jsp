@@ -131,7 +131,7 @@
 	                                                    <p>${o.describe}</p>
 	                                                    <div class="d-flex justify-content-between flex-lg-wrap">
 	                                                        <p class="text-dark fs-5 fw-bold mb-0">${o.price} đ / kg</p>
-	                                                        <a href="addTocart?productId=${o.id}" class="btn border border-secondary rounded-pill px-3 text-primary"><i class="fa fa-shopping-bag me-2 text-primary"></i> Add to cart</a>
+	                                                        <a href="addTocart?productId=${o.id}" class="btn border border-secondary rounded-pill px-3 text-primary"><i class="fa fa-shopping-bag me-2 text-primary"></i>Thêm vào giỏ hàng</a>
 	                                                    </div>
 	                                                </div>
 	                                            </div>
@@ -157,7 +157,7 @@
 	                                                    <p>${pTraiCay.describe}</p>
 	                                                    <div class="d-flex justify-content-between flex-lg-wrap">
 	                                                        <p class="text-dark fs-5 fw-bold mb-0">${pTraiCay.price} đ / kg</p>
-	                                                        <a href="addTocart?productId=${pTraiCay.id}" class="btn border border-secondary rounded-pill px-3 text-primary"><i class="fa fa-shopping-bag me-2 text-primary"></i> Add to cart</a>
+	                                                        <a href="addTocart?productId=${pTraiCay.id}" class="btn border border-secondary rounded-pill px-3 text-primary"><i class="fa fa-shopping-bag me-2 text-primary"></i>Thêm vào giỏ hàng</a>
 	                                                    </div>
 	                                                </div>
 	                                            </div>
@@ -183,7 +183,7 @@
 	                                                    <p>${pRauCu.describe}</p>
 	                                                    <div class="d-flex justify-content-between flex-lg-wrap">
 	                                                        <p class="text-dark fs-5 fw-bold mb-0">${pRauCu.price} đ / kg</p>
-	                                                        <a href="addTocart?productId=${pRauCu.id}" class="btn border border-secondary rounded-pill px-3 text-primary"><i class="fa fa-shopping-bag me-2 text-primary"></i> Add to cart</a>
+	                                                        <a href="addTocart?productId=${pRauCu.id}" class="btn border border-secondary rounded-pill px-3 text-primary"><i class="fa fa-shopping-bag me-2 text-primary"></i> Thêm vào giỏ hàng</a>
 	                                                    </div>
 	                                                </div>
 	                                            </div>
@@ -209,7 +209,7 @@
 	                                                    <p>${pNhapkhau.describe}</p>
 	                                                    <div class="d-flex justify-content-between flex-lg-wrap">
 	                                                        <p class="text-dark fs-5 fw-bold mb-0">${pNhapkhau.price} đ / kg</p>
-	                                                        <a href="addTocart?productId=${pNhapkhau.id}" class="btn border border-secondary rounded-pill px-3 text-primary"><i class="fa fa-shopping-bag me-2 text-primary"></i> Add to cart</a>
+	                                                        <a href="addTocart?productId=${pNhapkhau.id}" class="btn border border-secondary rounded-pill px-3 text-primary"><i class="fa fa-shopping-bag me-2 text-primary"></i> Thêm vào giỏ hàng</a>
 	                                                    </div>
 	                                                </div>
 	                                            </div>

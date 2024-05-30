@@ -62,7 +62,7 @@
                             <div class="col-lg-6">
                             	<form action = "${contextPath}/addTocart" method="post">
 	                                <h4 class="fw-bold mb-3">${product.name}</h4>
-	                                <p class="mb-3">Category: ${product.category.getName()}</p>
+	                                <p class="mb-3">Thể loại: ${product.category.getName()}</p>
 	                                <h5 class="fw-bold mb-3">${product.price} đ</h5>
 	                                <p class="mb-4">${product.describe}</p>
 	                                <div class="input-group quantity mb-5" style="width: 100px;">
@@ -80,21 +80,11 @@
 	                                    </div>
 	                                </div>
 	                                <input type="hidden" name="productId" value="${product.id}">
-	                                <button type="submit" class="btn border border-secondary rounded-pill px-4 py-2 mb-4 text-primary"><i class="fa fa-shopping-bag me-2 text-primary"></i> Add to cart</button>
+	                                <button type="submit" class="btn border border-secondary rounded-pill px-4 py-2 mb-4 text-primary"><i class="fa fa-shopping-bag me-2 text-primary"></i> Thêm vào giỏ hàng</button>
 
                                 </form>
                             </div>
                             <!--  -->
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-xl-3">
-                        <div class="row g-4 fruite">
-                            <div class="col-lg-12">
-                                <div class="input-group w-100 mx-auto d-flex mb-4">
-                                    <input type="search" class="form-control p-3" placeholder="keywords" aria-describedby="search-icon-1">
-                                    <span id="search-icon-1" class="input-group-text p-3"><i class="fa fa-search"></i></span>
-                                </div>
-                            </div>
                         </div>
                     </div>
                 </div>

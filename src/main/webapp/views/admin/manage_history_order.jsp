@@ -82,7 +82,7 @@
                         <h3 class="mb-4 text-center">Quản lí đơn hàng</h3>
 						<!-- Form lịch -->
 						<form action="${contextPath}/admin_manager_history_order" method="post">
-							  <div class="mb-3 col-4">
+							  <div class="mb-3 col-6">
 								  <label class="form-label d-inline-block">Chọn kiểu:</label>
 								  <select class="form-select d-inline-block w-auto" name="kieu">
 									  <option value="1">Đơn hàng đã duyệt</option>
