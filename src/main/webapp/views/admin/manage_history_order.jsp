@@ -79,7 +79,7 @@
                     <!-- Nội dung của trang web bắt đầu từ đây-->
                     <div class="col py-3">
                         <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 px-5 py-1">
-                        <h3 class="mb-4 text-center">Quản lí đơn hàng</h3>
+                        <h3 class="mb-4 text-center">Lịch sử đơn hàng</h3>
 						<!-- Form lịch -->
 						<form action="${contextPath}/admin_manager_history_order" method="post">
 							  <div class="mb-3 col-6">
@@ -97,9 +97,9 @@
                                     <table class="table">
                                         <thead>
                                             <tr class="table-dark">
-                                                <th scope="col" class = "text-start ">ID đơn hàng</th>
+                                                <th scope="col" class = "text-start ">Tên khách hàng</th>
                                                 <th scope="col">Ngày đặt mua</th>
-                                                <th scope="col">Tên khách hàng</th>
+                                                <th scope="col">Số điện thoại</th>
                                                 <th scope="col">Địa điểm</th>
                                                 <th scope="col" >Tổng giá</th>
                                                 <th scope="col" >Tình trạng</th>
@@ -109,9 +109,9 @@
                                         <tbody>
                                        		<c:forEach items="${order}" var="o">
 	                                            <tr>
-	                                                <th scope="row" class = "py-5 text-start">${o.id}</th>
+	                                                <th scope="row" class = "py-5 text-start">${o.getUserModel().getuName()}</th>
 	                                                <td class="py-5">${o.date_Create}</td>
-													<td class="py-5 " >${o.getUserModel().getuName()}</td>
+													<td class="py-5 " >${o.getUserModel().getSdt()}</td>
 	                                                <td class="py-5 ">${o.address}</td>
 	                                                <td class="py-5 " >${o.total_Price}đ</td>
 	                                                <c:if test="${o.status.equals(\"Đã xác nhận\")}">

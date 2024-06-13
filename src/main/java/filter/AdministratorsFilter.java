@@ -33,7 +33,7 @@ public class AdministratorsFilter implements Filter{
 		HttpServletRequest request2 = (HttpServletRequest) request;
 		HttpServletResponse response2 = (HttpServletResponse) response;
 		String url = request2.getRequestURI();
-		if(url.contains("/admin_manager_order") || url.contains("/addProduct") || url.contains("/admin_manage_product")) {
+		if(url.contains("/admin_manager_order") || url.contains("/addProduct") || url.contains("/admin_manage_product") || url.contains("/admin_manager_history_order")) {
 			AccountModel accountModel = (AccountModel)SessionUtil.getInstance().getValue(request2, "acc");
 			if(accountModel!=null) {
 				if(accountModel.getUser().getRolemodel().getRoleId()==1){

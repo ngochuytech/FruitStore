@@ -50,6 +50,7 @@
         <div class="container-fluid py-5">
             <div class="container py-5">
                 <h1 class="mb-4">Hóa đơn thanh toán</h1>
+                 <p style="color:red">Khách hàng phải điền đầy đủ thông tin trước khi thanh toán, nếu không đơn hàng sẽ không xác nhận !</p>
                     <div class="row g-5">
                         <div class="col-md-12 col-lg-6 col-xl-7">
                         	<fieldset disabled>
