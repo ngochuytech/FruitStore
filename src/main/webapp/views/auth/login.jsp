@@ -54,11 +54,6 @@
 												kí tại đây</u></a>
 									</p>
 
-									<p class="text-center text-muted mt-6 mb-0">
-										<a href="${contextPath}/views/auth/forgotpassword.jsp" class="fw-bold text-body"><u>Bạn quên mật
-												khẩu? </u></a>
-									</p>
-
 								</form>
 
 							</div>

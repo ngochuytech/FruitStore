@@ -45,25 +45,28 @@
         </div>
         <!-- Single Page Header End -->
 
-
+		<form action = "${contextPath}/checkout" method="post">
         <!-- Checkout Page Start -->
         <div class="container-fluid py-5">
             <div class="container py-5">
                 <h1 class="mb-4">Hóa đơn thanh toán</h1>
+                 <p style="color:red">Khách hàng phải điền đầy đủ thông tin trước khi thanh toán, nếu không đơn hàng sẽ không xác nhận !</p>
                     <div class="row g-5">
                         <div class="col-md-12 col-lg-6 col-xl-7">
-                            <div class="form-item">
-                                <label class="form-label my-3">Họ và tên</label>
-                                <input type="text" name = "UserName" value = "${UserName}" class="form-control" placeholder="Nhập họ và tên của bạn">
-                            </div>
-                            <div class="form-item">
-                                <label class="form-label my-3">Email</label>
-                                <input type="email" name = "UserEmail" value = "${UserEmail}" class="form-control" placeholder="Nhập email của bạn">
-                            </div>  
-                            <div class="form-item">
-                                <label class="form-label my-3">Số điện thoại</label>
-                                <input type="tel" name = "UserPhone" value = "${UserPhone}" class="form-control" placeholder="Nhập số điện thoại của bạn">
-                            </div>
+                        	<fieldset disabled>
+	                            <div class="form-item">
+	                                <label class="form-label my-3">Họ và tên</label>
+	                                <input type="text" name = "UserName" value = "${UserName}" class="form-control" placeholder="Nhập họ và tên của bạn">
+	                            </div>
+	                            <div class="form-item">
+	                                <label class="form-label my-3">Email</label>
+	                                <input type="email" name = "UserEmail" value = "${UserEmail}" class="form-control" placeholder="Nhập email của bạn">
+	                            </div>  
+	                            <div class="form-item">
+	                                <label class="form-label my-3">Số điện thoại</label>
+	                                <input type="tel" name = "UserPhone" value = "${UserPhone}" class="form-control" placeholder="Nhập số điện thoại của bạn">
+	                            </div>
+                            </fieldset>
                             <div class="form-item">
                                 <label class="form-label my-3">Địa chỉ</label>
                                 <input type="text" name = "UserAddress" value = "${UserAddress}" class="form-control" placeholder="Nhập địa chỉ của bạn">
@@ -115,8 +118,9 @@
 															totalPayment += item.getQuantity() * item.getPrice();
 														}
 													}
+													String formattedNumber = String.format("%.0f", totalPayment);
 													%>
-													<%=totalPayment %> đ	</p>
+													<%=formattedNumber %> đ	</p>
 											</div>
 										</td>
 									</tr>
@@ -125,15 +129,16 @@
                             </div>
                             
                             <div class="row g-4 text-center align-items-center justify-content-center pt-4">
-                            	<form action = "${contextPath}/checkout" method="post">
+                            	
                               	  	<input type="submit" name="submit" value="Đặt hàng" class="btn border-secondary py-3 px-4 text-uppercase w-100 text-primary">
-                              	</form>
+                              	
                             </div>
                         </div>
                     </div>
             </div>
         </div>
         <!-- Checkout Page End -->
+        </form>
 
 
         <!-- Footer Start -->

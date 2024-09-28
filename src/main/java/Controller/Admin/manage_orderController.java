@@ -1,4 +1,4 @@
-package Controller.User;
+package Controller.Admin;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -12,28 +12,21 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import Model.AccountModel;
 import Model.OrdersDetailsModel;
 import Model.OrdersModel;
-import Model.UserModel;
 import service.IOrderDetailService;
 import service.IOrderService;
-import utils.SessionUtil;
 
-@WebServlet(urlPatterns = {"/order_history"})
-public class order_history extends HttpServlet{
+@WebServlet(urlPatterns = {"/admin_manager_order"})
+public class manage_orderController extends HttpServlet{
 
 	@Inject
 	private IOrderService orderService;
-	
 	@Inject
 	private IOrderDetailService orderDetailService;
-	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		AccountModel account = (AccountModel) SessionUtil.getInstance().getValue(req, "acc");
-		UserModel user = account.getUser();
-		List<OrdersModel> order = orderService.findByUser(user.getUserId());
+		List<OrdersModel> order = orderService.getAllbyWaiting();
 		List<List<OrdersDetailsModel>> orderDList = new ArrayList<List<OrdersDetailsModel>>();
 		List<Integer> id_modal = new ArrayList<Integer>();
 		List<Integer> sizeOrderDetail = new ArrayList<Integer>();
@@ -47,15 +40,24 @@ public class order_history extends HttpServlet{
 		req.setAttribute("ListIdModal", id_modal);
 		req.setAttribute("order", order);
 		req.setAttribute("orderDList", orderDList);
-		RequestDispatcher rd = req.getRequestDispatcher("/views/user/order_history.jsp");	
+		RequestDispatcher rd = req.getRequestDispatcher("/views/admin/manage_order.jsp");	
 		rd.forward(req, resp);
 	}
+	
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		// Chức năng khách hàng hủy đơn khi đơn hàng chưa được duyệt
-		int idOrder = Integer.parseInt(req.getParameter("orderId"));
-		orderService.updateStatus(idOrder,"Đã hủy đơn bởi khách hàng");
-		orderService.updateDate_Confirm(idOrder);
-		resp.sendRedirect(req.getContextPath()+"/order_history");
+		String action = req.getParameter("action");
+		String idModal = req.getParameter("modalId");
+		if(action!=null) {
+			List<OrdersModel> order = orderService.getAllbyWaiting();
+			if(action.equals("accept")) {		
+				orderService.updateStatus(order.get(Integer.parseInt(idModal)).getId(), "Đã xác nhận");
+			}
+			else if(action.equals("cancel")) {
+				orderService.updateStatus(order.get(Integer.parseInt(idModal)).getId(), "Đã hủy đơn");
+			}
+			orderService.updateDate_Confirm(order.get(Integer.parseInt(idModal)).getId());
+		}
+		resp.sendRedirect(req.getContextPath()+"/admin_manager_order");
 	}
 }

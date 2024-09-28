@@ -58,7 +58,7 @@
 									placeholder="keywords" aria-describedby="search-icon-1">
 								<button type="submit" class="btn-search btn btn-secondary">
 									<a href="shop?search=${textSearch}"><span
-										id="search-icon-1" class=" p-4"><i class="fa fa-search"></a></i></span>
+										id="search-icon-1" class=" p-4"><i class="fa fa-search"></i></span></a>
 								</button>
 							</form>
 						</div>
@@ -122,8 +122,7 @@
 													<p class="text-dark fs-5 fw-bold mb-0">${o.price}đ/kg</p>
 													<a href="addTocart?productId=${o.id}"
 														class="btn border border-secondary rounded-pill px-3 text-primary"><i
-														class="fa fa-shopping-bag me-2 text-primary"></i> Add to
-														cart</a>
+														class="fa fa-shopping-bag me-2 text-primary"></i> Thêm vào giỏ hàng</a>
 												</div>
 											</div>
 										</div>

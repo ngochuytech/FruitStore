@@ -20,8 +20,8 @@ public class OrderService implements IOrderService{
 	}
 
 	@Override
-	public void updateTotalPrice(int id, float Total) {
-		orderDAO.updateTotalPrice(id, Total);
+	public void updateTotalPrice(int id, String address, float Total) {
+		orderDAO.updateTotalPrice(id, address, Total);
 	}
 
 	@Override
@@ -32,6 +32,26 @@ public class OrderService implements IOrderService{
 	@Override
 	public List<OrdersModel> findByUser(int id) {
 		return orderDAO.findByUser(id);
+	}
+
+	@Override
+	public List<OrdersModel> getAllbyWaiting() {
+		return orderDAO.getAllbyWaiting();
+	}
+
+	@Override
+	public void updateStatus(int id, String status) {
+		orderDAO.updateStatus(id, status);
+	}
+
+	@Override
+	public void updateDate_Confirm(int id) {
+		orderDAO.updateDate_Confirm(id);
+	}
+
+	@Override
+	public List<OrdersModel> getAllbyStatusAndDate(String status, String Date) {
+		return orderDAO.getAllbyStatusAndDate(status, Date);
 	}
 	
 	

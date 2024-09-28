@@ -91,7 +91,7 @@
                         </div>
                         <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12 py-3">
                             <div class="form-group">
-                                <label for="website">Address    </label>
+                                <label for="website">Address</label>
                                 <input type="text" class="form-control"name="txtAddress" value="${userAddress}" id="website" placeholder="Website url">
                             </div>
                         </div>

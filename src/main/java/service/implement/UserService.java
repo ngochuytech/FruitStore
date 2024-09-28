@@ -13,5 +13,9 @@ public class UserService implements IUserService{
 	public void updateInformation(int id, String name, String Phone, String Address, String Email) {
 		userDAO.updateInformation(id, name, Phone, Address, Email);
 	}
+	@Override
+	public int insert(String name, String email) {
+		return userDAO.insert(name, email);
+	}
 
 }

@@ -85,11 +85,6 @@
 	
 					</div>
 					<div class="d-flex m-3 me-0">
-						<button
-							class="btn-search btn border border-secondary btn-md-square rounded-circle bg-white me-4"
-							data-bs-toggle="modal" data-bs-target="#searchModal">
-							<i class="fas fa-search text-primary"></i>
-						</button>
 						<!-- Icon  gio hang o day-->
 						<a href="${contextPath}/cart" class="position-relative me-4 my-auto"> <i
 							class="fa fa-shopping-bag fa-2x"></i>
@@ -110,31 +105,6 @@
 		</div>
 	</div>
 	<!-- Navbar End -->
-	
-	
-	<!-- Modal Search Start -->
-	<div class="modal fade" id="searchModal" tabindex="-1"
-		aria-labelledby="exampleModalLabel" aria-hidden="true">
-		<div class="modal-dialog modal-fullscreen">
-			<div class="modal-content rounded-0">
-				<div class="modal-header">
-					<h5 class="modal-title" id="exampleModalLabel">Search by
-						keyword</h5>
-					<button type="button" class="btn-close" data-bs-dismiss="modal"
-						aria-label="Close"></button>
-				</div>
-				<div class="modal-body d-flex align-items-center">
-					<div class="input-group w-75 mx-auto d-flex">
-						<input type="search" class="form-control p-3"
-							placeholder="keywords" aria-describedby="search-icon-1"> <span
-							id="search-icon-1" class="input-group-text p-3"><i
-							class="fa fa-search"></i></span>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-	<!-- Modal Search End -->
 
 
 	<!-- Single Page Header start -->
@@ -173,7 +143,7 @@
 									<p class="mb-0 mt-4">${entry.product.getName()}</p>
 								</td>
 								<td>
-									<p class="mb-0 mt-4">${entry.price}</p>
+									<p class="mb-0 mt-4">${entry.price}đ</p>
 								</td>
 								<td>
 									<div class="input-group quantity mt-4" style="width: 100px;">
@@ -186,7 +156,7 @@
 										</div>
 										<input type="text"
 											class="form-control form-control-sm text-center border-0"
-											value="${entry.quantity}">
+											value="${entry.quantity}" readonly>
 										<div class="input-group-btn">
 											<a
 												href="updateCart?productId=${entry.product.getId()}&action=up"><button
@@ -230,13 +200,14 @@
 								        	totalPayment += item.getQuantity() * item.getPrice();
 								        }
 								    }
+								    String formattedNumber = String.format("%.0f", totalPayment);
 								%>
-								<%=totalPayment %> đ	
+								<%=formattedNumber%> đ	
 							</p>
 						</div>
 						<a href="${contextPath}/checkout"><button
 								class="btn border-secondary rounded-pill px-4 py-3 text-primary text-uppercase mb-4 ms-4"
-								type="button">Proceed Checkout</button></a>
+								type="button">Thanh toán</button></a>
 					</div>
 				</div>
 			</div>

@@ -21,8 +21,8 @@ public class AccountService implements IAccountService{
 	}
 
 	@Override
-	public int insert(AccountModel accountModel) {
-		return accountDAO.insert(accountModel);
+	public int insert(AccountModel accountModel, int idUser) {
+		return accountDAO.insert(accountModel, idUser);
 	}
 
 }

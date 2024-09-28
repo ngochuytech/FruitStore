@@ -47,23 +47,18 @@
 
 				</div>
 				<div class="d-flex m-3 me-0">
-					<button
-						class="btn-search btn border border-secondary btn-md-square rounded-circle bg-white me-4"
-						data-bs-toggle="modal" data-bs-target="#searchModal">
-						<i class="fas fa-search text-primary"></i>
-					</button>
 					<!-- Icon  gio hang o day-->
 					<a href="${contextPath}/cart" class="position-relative me-4 my-auto"> <i
 						class="fa fa-shopping-bag fa-2x"></i>
 					</a>
 					<c:if test="${sessionScope.acc == null}">
-						<a href="/FruitStore/login" class="my-auto btn btn-primary" > Login </a> 
+						<a href="/FruitStore/login" class="my-auto btn btn-primary" > Đăng nhập </a> 
 					</c:if> 
 					<c:if test="${sessionScope.acc != null}">
 						<a href="${contextPath}/user_information"
 							class="my-auto me-4"> <i class="fas fa-user fa-2x"></i>
 						</a> 
-						<a href="/FruitStore/logout" class="my-auto btn btn-primary "> Logout </a>
+						<a href="/FruitStore/logout" class="my-auto btn btn-primary "> Đăng xuất </a>
 					</c:if> 
 					
 				</div>
@@ -72,28 +67,3 @@
 	</div>
 </div>
 <!-- Navbar End -->
-
-
-<!-- Modal Search Start -->
-<div class="modal fade" id="searchModal" tabindex="-1"
-	aria-labelledby="exampleModalLabel" aria-hidden="true">
-	<div class="modal-dialog modal-fullscreen">
-		<div class="modal-content rounded-0">
-			<div class="modal-header">
-				<h5 class="modal-title" id="exampleModalLabel">Search by
-					keyword</h5>
-				<button type="button" class="btn-close" data-bs-dismiss="modal"
-					aria-label="Close"></button>
-			</div>
-			<div class="modal-body d-flex align-items-center">
-				<div class="input-group w-75 mx-auto d-flex">
-					<input type="search" class="form-control p-3"
-						placeholder="keywords" aria-describedby="search-icon-1"> <span
-						id="search-icon-1" class="input-group-text p-3"><i
-						class="fa fa-search"></i></span>
-				</div>
-			</div>
-		</div>
-	</div>
-</div>
-<!-- Modal Search End -->
