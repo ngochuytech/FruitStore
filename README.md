@@ -1,4 +1,4 @@
-# FruitStore
+# FruitStore - 6/2024
 
 FruitStore là một dự án web ứng dụng quản lý cửa hàng trái cây, được xây dựng với Java Servlet, JSP, JSTL và sử dụng SQL Server làm cơ sở dữ liệu. Dự án hỗ trợ các chức năng quản lý sản phẩm, đơn hàng, người dùng, phân quyền và xác thực.
 
