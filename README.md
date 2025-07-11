@@ -39,31 +39,31 @@ FruitStore là một dự án web ứng dụng quản lý cửa hàng trái cây
 
 ## Ảnh chụp từ dự án
 - Trang chủ
-  ![Home](screenshots/Home.png)
+  ![Home](Screenshots/Home.png)
 - Danh sách sản phẩm
-  ![Product](screenshots/Product.png)
+  ![Product](Screenshots/Product.png)
 
 - Chi tiết sản phẩm
-  ![ProductDetail](screenshots/ProductDetail.png)
+  ![ProductDetail](Screenshots/ProductDetail.png)
 
 - Giỏ hàng
-  ![ShoppingCart](screenshots/ShoppingCart.png)
+  ![ShoppingCart](Screenshots/ShoppingCart.png)
 
 - Hóa đơn
-  ![Bill](screenshots/Bill.png)
+  ![Bill](Screenshots/Bill.png)
 
 - Lịch sử đơn hàng của user
-  ![Order](screenshots/OrderHistoryOfUser.png)
+  ![Order](Screenshots/OrderHistoryOfUser.png)
 
 - Thông tin cá nhân
-  ![Profile](screenshots/Profile.png)
+  ![Profile](Screenshots/Profile.png)
 
 - Lịch sử đơn hàng của admin
-  ![Order history](screenshots/OrderHistoryOfAdmin.png)
+  ![Order history](Screenshots/OrderHistoryOfAdmin.png)
 
 - Quản lý mặt hàng
-  ![ProductManagement](screenshots/ProductManagement.png)
+  ![ProductManagement](Screenshots/ProductManagement.png)
 
 - Quản lý đơn hàng
-  ![OrderManagement](screenshots/OrderManagement.png)
+  ![OrderManagement](Screenshots/OrderManagement.png)
 
